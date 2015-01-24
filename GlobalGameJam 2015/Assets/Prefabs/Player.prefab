@@ -130,8 +130,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.75999999, z: -.5}
+  m_LocalRotation: {x: 0, y: 0, z: -.477944314, w: .878390193}
+  m_LocalPosition: {x: 91.4000015, y: -107.190002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -306,11 +306,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: Infinity
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!64 &6400000
 MeshCollider:
@@ -456,7 +456,7 @@ MonoBehaviour:
   lightRadius: 20
   coneStart: 0
   coneAngle: 40
-  lightColor: {r: .373136401, g: .375, b: .239889711, a: 0}
+  lightColor: {r: .249214813, g: .250980407, b: .16043061, a: 0}
   lightDetail: 1008
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
@@ -488,7 +488,7 @@ MonoBehaviour:
   lightRadius: 20
   coneStart: 0
   coneAngle: 40
-  lightColor: {r: .373136401, g: .375, b: .239889711, a: 0}
+  lightColor: {r: .249214813, g: .250980407, b: .16043061, a: 0}
   lightDetail: 1008
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84eea0ae03f1e624fb6421ba52f8a272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoScript: {fileID: 11400010}
+  playerTransform: {fileID: 0}
   fireMinTime: 1
   fireLightTime: .25
   light: {fileID: 10800002}
