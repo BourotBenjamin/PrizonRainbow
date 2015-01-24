@@ -4,7 +4,7 @@ using System.Collections;
 public class ShotgunScript : WeaponScript{
 
     [SerializeField]
-    private ShotgunAmmoScript ammoScript;
+    private Transform playerTransform;
     private bool fire = false;
     private bool fireButton = false;
     private float fireTime = 0;
@@ -14,11 +14,6 @@ public class ShotgunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
-
-	// Use this for initialization
-	void Start () {
-        ammoScript.enabled = false;
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,15 +32,26 @@ public class ShotgunScript : WeaponScript{
             {
                 --ammo;
                 fire = true;
-                ammoScript.active = true;
-                print("RunAmmo");
                 light.enabled = true;
                 fireTime = Time.timeSinceLevelLoad;
+                RaycastHit hit;
+                Quaternion qt;
+                for (int i = 0; i < 10; ++i )
+                {
+                    qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
+                    if (Physics.Raycast(playerTransform.position, qt * playerTransform.right, out hit, 100f))
+                    {
+                        print(hit.collider.tag);
+                        if (hit.collider.tag == "mob")
+                        {
+                            Destroy(hit.collider.gameObject);
+                        }
+                    }
+                }
             }
         }
         else
         {
-            ammoScript.active = false;
             if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
             {
                 fire = false;
