@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\GrabWeaponScript.cs" />
      <Compile Include="Assets\Scripts\GunScript.cs" />
+     <Compile Include="Assets\Scripts\ManetteController.cs" />
      <Compile Include="Assets\Scripts\PlayerWeaponsScript.cs" />
      <Compile Include="Assets\Scripts\ShotgunAmmoScript.cs" />
      <Compile Include="Assets\Scripts\ShotgunScript.cs" />
