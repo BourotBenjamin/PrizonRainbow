@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -.0657693148, y: .0657693073, z: -.704041481, w: .704041481}
-  m_LocalPosition: {x: 89.3764648, y: -108.687233, z: -.49000001}
+  m_LocalPosition: {x: 101.5, y: -107.650002, z: -.49000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456664}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156664}
   m_LocalRotation: {x: .0657693148, y: -.0657693073, z: .704041481, w: .704041481}
-  m_LocalPosition: {x: -.0762329027, y: -.0509228557, z: .489029616}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idWeapon: 0
-  ammoValue: 0
+  ammoValue: 12
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
