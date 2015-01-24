@@ -60,10 +60,8 @@ public class Zombihavior : MonoBehaviour {
 						}
 					}
 				}
-				Debug.Log("OK");
 				if(Vector3.Distance(transform.position, go.transform.position) < _hearRange)
 				{
-					Debug.Log("hearin");
 					return go.transform.position;
 				}
 			}
