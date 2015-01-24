@@ -90,9 +90,10 @@ public class ManetteController : MonoBehaviour {
 	{
 		float translationV = state.ThumbSticks.Left.Y * speed;
 		float translationH = state.ThumbSticks.Left.X * speed;
-		translationH *= Time.deltaTime;
-		translationV *= Time.deltaTime;
-		transform.Translate(translationH, translationV, 0, Space.World);
+		//translationH *= Time.deltaTime;
+		//translationV *= Time.deltaTime;
+		//transform.Translate(translationH, translationV, 0, Space.World);
+		rigidbody.velocity = new Vector3 (translationH, translationV, 0);
 	}
 	
 	void Watch()

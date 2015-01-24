@@ -4,20 +4,17 @@ using XInputDotNetPure;
 
 public class GrabWeaponScript : MonoBehaviour {
 
-    [SerializeField]
-    private Collider playerOne;
-    [SerializeField]
-    private Collider playerTwo;
-    [SerializeField]
-    private PlayerWeaponsScript playerOneWeaponScript;
-    [SerializeField]
-    private PlayerWeaponsScript playerTwoWeaponScript;
+    private Transform playerOne;
+    private Transform playerTwo;
     [SerializeField]
     private int idWeapon = 1;
     [SerializeField]
     private int ammoValue = 1;
+    private PlayerWeaponsScript playerOneWeaponScript;
+    private PlayerWeaponsScript playerTwoWeaponScript;
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
+<<<<<<< HEAD
 
 	int _index = 0;
 	int _index_2 = 1;
@@ -30,6 +27,16 @@ public class GrabWeaponScript : MonoBehaviour {
 	GamePadState state_2;
 	GamePadState prevState_2;
 
+=======
+    
+    void Start()
+    {
+        playerOne = Camera.main.GetComponent<CameraScirpt>().playerOne;
+        playerTwo = Camera.main.GetComponent<CameraScirpt>().playerTwo;
+        playerOneWeaponScript = playerOne.GetComponent<PlayerWeaponsScript>();
+        playerTwoWeaponScript = playerTwo.GetComponent<PlayerWeaponsScript>();
+    }
+>>>>>>> dc5e2c34c7769e85f362bd56b244cc92c7edfc6e
 
 	// Use this for initialization
 	void Update ()
@@ -115,12 +122,12 @@ public class GrabWeaponScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col == playerOne)
+        if (col == playerOne.collider)
         {
             playerOneInTrigger = true;
             print("P2In");
         }
-        if (col == playerTwo)
+        if (col == playerTwo.collider)
         {
             playerTwoInTrigger = true;
             print("P1In");
@@ -129,12 +136,12 @@ public class GrabWeaponScript : MonoBehaviour {
     // Update is called once per frame
     void OnTriggerExit(Collider col)
     {
-        if (col == playerOne)
+        if (col == playerOne.collider)
         {
             playerOneInTrigger = false;
             print("P1Out");
         }
-        if (col == playerTwo)
+        if (col == playerTwo.collider)
         {
             playerTwoInTrigger = false;
             print("P2Out");
