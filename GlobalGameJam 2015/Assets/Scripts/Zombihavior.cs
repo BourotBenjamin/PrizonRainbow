@@ -10,6 +10,7 @@ public class Zombihavior : MonoBehaviour {
 	public float _speed = 3;
 	private Vector3 _target;
 	private float _baseViewRange;
+	public AudioClip[] _ZSounds;
 
 	// Use this for initialization
 	void Start () 
