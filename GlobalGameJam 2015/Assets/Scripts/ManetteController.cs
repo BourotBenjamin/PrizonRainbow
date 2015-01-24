@@ -4,7 +4,7 @@ using XInputDotNetPure;
 
 public class ManetteController : MonoBehaviour {
 
-	public float speed = 1;
+	public float speed = 6;
 	public GameObject _FlashlightUp;
 	public GameObject _FlashlightDown;
 	public GameObject _orientation;
@@ -31,7 +31,7 @@ public class ManetteController : MonoBehaviour {
 		GamePadState testState = GamePad.GetState(testPlayerIndex);
 		if (testState.IsConnected)
 		{
-			Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+			//Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
 			playerIndex = testPlayerIndex;
 			playerIndexSet = true;
 		}
@@ -81,9 +81,10 @@ public class ManetteController : MonoBehaviour {
 	{
 		float translationV = state.ThumbSticks.Left.Y * speed;
 		float translationH = state.ThumbSticks.Left.X * speed;
-		translationH *= Time.deltaTime;
-		translationV *= Time.deltaTime;
-		transform.Translate(translationH, translationV, 0, Space.World);
+		//translationH *= Time.deltaTime;
+		//translationV *= Time.deltaTime;
+		//transform.Translate(translationH, translationV, 0, Space.World);
+		rigidbody.velocity = new Vector3 (translationH, translationV, 0);
 	}
 	
 	void Watch()
