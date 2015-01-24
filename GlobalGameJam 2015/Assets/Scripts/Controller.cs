@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
+		Move();
 		Watch ();
 	
 		if(Input.GetMouseButtonDown(1))
@@ -42,11 +42,6 @@ public class Controller : MonoBehaviour {
 			lightIsOn = false;
 		}	
 	}
-	void FixedUpdate()
-	{
-		Move();
-	}
-
 	void Move()
 	{
         translationV = Input.GetAxis(verticalAxis) * speed;
