@@ -290,9 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodMaterials:
-  - {fileID: 2100000, guid: 512dafd3915551748a8000781a521929, type: 2}
-  - {fileID: 2100000, guid: 5582a9dbf57a84e40ad006a9bc6ddcf8, type: 2}
-  - {fileID: 2100000, guid: 9b499d5533a66e044b245440603358ef, type: 2}
+  - {fileID: 2100000, guid: 2a2301c93e3876a4d934a34d1ed32a34, type: 2}
+  - {fileID: 2100000, guid: 743cc970a1943514794ab77ea533d9a4, type: 2}
   bloodPrefab: {fileID: 1812980367}
 --- !u!1 &204475615
 GameObject:
@@ -727,15 +726,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 473640, guid: f2a4539991dea1547a977c8233015811, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.11251783
+      value: 3.1099999
       objectReference: {fileID: 0}
     - target: {fileID: 473640, guid: f2a4539991dea1547a977c8233015811, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.98988962
+      value: -3.99000001
       objectReference: {fileID: 0}
     - target: {fileID: 473640, guid: f2a4539991dea1547a977c8233015811, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -.5
+      value: -.529999971
       objectReference: {fileID: 0}
     - target: {fileID: 473640, guid: f2a4539991dea1547a977c8233015811, type: 2}
       propertyPath: m_LocalRotation.x
@@ -755,7 +754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473640, guid: f2a4539991dea1547a977c8233015811, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 173640, guid: f2a4539991dea1547a977c8233015811, type: 2}
       propertyPath: m_TagString
@@ -823,7 +822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 4b1f190188bd84242b0c7f7e7f30d859, type: 2}
       propertyPath: ammoValue
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b1f190188bd84242b0c7f7e7f30d859, type: 2}
@@ -1075,15 +1074,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
       propertyPath: m_LocalScale.x
-      value: .5
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
       propertyPath: m_LocalScale.y
-      value: .5
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
       propertyPath: m_LocalScale.z
-      value: .5
+      value: .25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
@@ -1944,12 +1943,12 @@ Transform:
   m_PrefabInternal: {fileID: 341165648}
   m_GameObject: {fileID: 1062244518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11251783, y: -3.98988962, z: -.5}
+  m_LocalPosition: {x: 3.1099999, y: -3.99000001, z: -.529999971}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1921981444}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!54 &1062244520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3859,7 +3858,7 @@ Transform:
   m_Children:
   - {fileID: 1822350936}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!1 &1729360168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,7 +3903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idWeapon: 1
-  ammoValue: 1
+  ammoValue: 15
 --- !u!135 &1729360171
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4172,7 +4171,7 @@ Transform:
   m_GameObject: {fileID: 1812980367}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
