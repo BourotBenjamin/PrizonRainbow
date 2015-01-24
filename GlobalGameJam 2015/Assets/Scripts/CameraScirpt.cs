@@ -3,10 +3,9 @@ using System.Collections;
 
 public class CameraScirpt : MonoBehaviour {
 
-    [SerializeField]
-    private Transform playerOne;
-    [SerializeField]
-    private Transform playerTwo;
+    public Transform playerOne;
+    public Transform playerTwo;
+    public BloodScript bloodScript;
 
     private Transform cameraTransform;
 

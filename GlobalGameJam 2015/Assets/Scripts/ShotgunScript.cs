@@ -3,8 +3,7 @@ using System.Collections;
 
 public class ShotgunScript : WeaponScript{
 
-    [SerializeField]
-    private Transform playerTransform;
+
     private bool fire = false;
     private bool fireButton = false;
     private float fireTime = 0;
@@ -14,7 +13,19 @@ public class ShotgunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
+    [SerializeField]
+    private BloodScript bloodScript;
+    private LineRenderer lineRenderer;
+	ManetteController _ctrl;
 	
+	
+	void Start () 
+	{
+		_ctrl = GetComponent<ManetteController>();
+        bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
+        lineRenderer = this.GetComponent<LineRenderer>();
+    }
+
 	// Update is called once per frame
 	void Update () {
         
@@ -28,7 +39,7 @@ public class ShotgunScript : WeaponScript{
         }
         if (!fire)
         {
-            if (ammo > 0 && fireButton)
+			if (ammo > 0 && (fireButton || _ctrl.firebtn ))
             {
                 --ammo;
                 fire = true;
@@ -39,11 +50,15 @@ public class ShotgunScript : WeaponScript{
                 for (int i = 0; i < 10; ++i )
                 {
                     qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
-                    if (Physics.Raycast(playerTransform.position, qt * playerTransform.right, out hit, 100f))
+                    if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
                     {
+                        lineRenderer.SetVertexCount(2);
+                        lineRenderer.SetPosition(0, transform.position);
+                        lineRenderer.SetPosition(1, hit.collider.transform.position);
                         print(hit.collider.tag);
                         if (hit.collider.tag == "mob")
                         {
+                            bloodScript.showNextBlood(hit.collider.transform.position);
                             Destroy(hit.collider.gameObject);
                         }
                     }
