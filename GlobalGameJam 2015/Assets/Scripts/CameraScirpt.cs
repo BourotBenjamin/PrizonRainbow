@@ -25,12 +25,12 @@ public class CameraScirpt : MonoBehaviour {
         }
         else if (playerTwo.gameObject.activeSelf)
         {
-            cameraTransform.position = playerTwo.position;
+            cameraTransform.position = playerTwo.position + Vector3.back * 4;
             cameraTransform.camera.orthographicSize = 6;
         }
         else if (playerOne.gameObject.activeSelf)
         {
-            cameraTransform.position = playerOne.position;
+            cameraTransform.position = playerOne.position + Vector3.back * 4;
             cameraTransform.camera.orthographicSize = 6;
         }
 	}
