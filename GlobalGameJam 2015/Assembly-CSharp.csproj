@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\CameraScirpt.cs" />
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\FireScript.cs" />
+     <Compile Include="Assets\Scripts\ManetteController.cs" />
+     <Compile Include="Assets\Scripts\Zombihavior.cs" />
      <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
      <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Diffuse.shader" />
      <None Include="Assets\2DVLS\READ-ME.txt" />
