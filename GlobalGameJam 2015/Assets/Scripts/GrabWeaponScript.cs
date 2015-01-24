@@ -26,7 +26,6 @@ public class GrabWeaponScript : MonoBehaviour {
             if (Input.GetButtonDown("P1_grabAmmo"))
             {
                 playerOneWeaponScript.SetScriptEnabled(idWeapon);
-                this.renderer.material.color = Color.red;
             }
         }
         if (playerTwoInTrigger)
@@ -34,7 +33,6 @@ public class GrabWeaponScript : MonoBehaviour {
             if (Input.GetButtonDown("P2_grabAmmo"))
             {
                 playerTwoWeaponScript.SetScriptEnabled(idWeapon);
-                this.renderer.material.color = Color.blue;
             }
         }
 	}

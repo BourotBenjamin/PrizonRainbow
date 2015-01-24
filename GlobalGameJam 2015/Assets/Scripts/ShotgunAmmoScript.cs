@@ -15,7 +15,7 @@ public class ShotgunAmmoScript : MonoBehaviour {
     {
         if (active)
         {
-            if (collider.tag == "player")
+            if (collider.tag == "mob")
             {
                 Destroy(collider.gameObject);
             }
