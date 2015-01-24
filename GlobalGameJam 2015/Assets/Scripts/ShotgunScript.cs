@@ -36,14 +36,15 @@ public class ShotgunScript : WeaponScript{
             if (fireButton)
             {
                 fire = true;
-                ammoScript.enabled = true;
+                ammoScript.active = true;
+                print("RunAmmo");
                 light.enabled = true;
                 fireTime = Time.timeSinceLevelLoad;
             }
         }
         else
         {
-            ammoScript.enabled = false;
+            ammoScript.active = false;
             if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
             {
                 fire = false;

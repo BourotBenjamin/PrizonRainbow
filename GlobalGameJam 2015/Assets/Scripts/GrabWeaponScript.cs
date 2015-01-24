@@ -34,6 +34,7 @@ public class GrabWeaponScript : MonoBehaviour {
             if (Input.GetButtonDown("P2_grabAmmo"))
             {
                 playerTwoWeaponScript.SetScriptEnabled(idWeapon);
+                this.renderer.material.color = Color.blue;
             }
         }
 	}
@@ -43,10 +44,12 @@ public class GrabWeaponScript : MonoBehaviour {
         if (col == playerOne)
         {
             playerOneInTrigger = true;
+            print("P2In");
         }
         if (col == playerTwo)
         {
             playerTwoInTrigger = true;
+            print("P1In");
         }
     }
     // Update is called once per frame
@@ -55,10 +58,12 @@ public class GrabWeaponScript : MonoBehaviour {
         if (col == playerOne)
         {
             playerOneInTrigger = false;
+            print("P1Out");
         }
         if (col == playerTwo)
         {
             playerTwoInTrigger = false;
+            print("P2Out");
         }
     }
 }
