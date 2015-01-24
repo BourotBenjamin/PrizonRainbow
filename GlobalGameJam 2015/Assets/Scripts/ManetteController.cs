@@ -9,6 +9,7 @@ public class ManetteController : MonoBehaviour {
 	public GameObject _FlashlightDown;
 	public GameObject _orientation;
 	public int _index; // numéro du joueur
+	public bool lightIsOn;
 
 	bool playerIndexSet = false;
 	PlayerIndex playerIndex;
@@ -20,6 +21,7 @@ public class ManetteController : MonoBehaviour {
 	{
 		_FlashlightUp.SetActive(false);
 		_FlashlightDown.SetActive(false);
+		lightIsOn = false;
 	}
 	
 	// Update is called once per frame
@@ -48,11 +50,13 @@ public class ManetteController : MonoBehaviour {
 		{
 			_FlashlightUp.SetActive(true);
 			_FlashlightDown.SetActive(true);
+			lightIsOn = true;
 		}
 		if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
 		{
 			_FlashlightUp.SetActive(false);
 			_FlashlightDown.SetActive(false);
+			lightIsOn = false;
 		}
 		
 		// Set vibration according to triggers

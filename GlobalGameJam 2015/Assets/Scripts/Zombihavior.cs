@@ -9,10 +9,12 @@ public class Zombihavior : MonoBehaviour {
 	public float _viewAngle = 60;
 	public float _speed = 3;
 	private Vector3 _target;
+	private float _baseViewRange;
 
 	// Use this for initialization
 	void Start () 
 	{
+		_baseViewRange = _viewRange;
 		_Joueurs = GameObject.FindGameObjectsWithTag("player");
 	}
 	
@@ -34,10 +36,16 @@ public class Zombihavior : MonoBehaviour {
 
 	Vector3 SearchPlayer()
 	{
+		_viewRange = _baseViewRange;
 		foreach(GameObject go in _Joueurs)
 		{
 			if(go.activeSelf)
 			{
+				if(go.GetComponent<Controller>().lightIsOn || go.GetComponent<ManetteController>().lightIsOn)
+				{
+					_viewRange*=2;
+				}
+
 				if(Vector3.Distance(transform.position, go.transform.position) < _viewRange)
 				{
 					if(Vector3.Angle(transform.right, (go.transform.position - transform.position)) < _viewAngle)
