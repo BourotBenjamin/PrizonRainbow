@@ -441,7 +441,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9bed144be3703fb438e820a63e51722e, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9bed144be3703fb438e820a63e51722e, type: 2}
       propertyPath: playerOne
@@ -459,6 +459,10 @@ Prefab:
       propertyPath: playerTwoKeyScript
       value: 
       objectReference: {fileID: 1475507275}
+    - target: {fileID: 13500000, guid: 9bed144be3703fb438e820a63e51722e, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bed144be3703fb438e820a63e51722e, type: 2}
   m_RootGameObject: {fileID: 792477875}
@@ -679,6 +683,10 @@ Prefab:
       propertyPath: playerTwoWeaponScript
       value: 
       objectReference: {fileID: 1475507274}
+    - target: {fileID: 11400000, guid: 4b1f190188bd84242b0c7f7e7f30d859, type: 2}
+      propertyPath: ammoValue
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b1f190188bd84242b0c7f7e7f30d859, type: 2}
   m_RootGameObject: {fileID: 1729360168}
@@ -812,7 +820,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 238478026}
   m_GameObject: {fileID: 792477875}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
@@ -1349,6 +1357,10 @@ Prefab:
       propertyPath: playerTwoWeaponScript
       value: 
       objectReference: {fileID: 1475507274}
+    - target: {fileID: 11400000, guid: b35282c9ddbd1ae4ab884081333f7d69, type: 2}
+      propertyPath: ammoValue
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b35282c9ddbd1ae4ab884081333f7d69, type: 2}
   m_RootGameObject: {fileID: 1710786165}
@@ -2116,7 +2128,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1458939731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,6 +2759,7 @@ MonoBehaviour:
   playerOneWeaponScript: {fileID: 912186785}
   playerTwoWeaponScript: {fileID: 1475507274}
   idWeapon: 0
+  ammoValue: 15
 --- !u!4 &1710786170
 Transform:
   m_ObjectHideFlags: 0
@@ -2789,7 +2802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &1729360170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,6 +2820,7 @@ MonoBehaviour:
   playerOneWeaponScript: {fileID: 912186785}
   playerTwoWeaponScript: {fileID: 1475507274}
   idWeapon: 1
+  ammoValue: 2
 --- !u!135 &1729360171
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -33,8 +33,9 @@ public class ShotgunScript : WeaponScript{
         }
         if (!fire)
         {
-            if (fireButton)
+            if (ammo > 0 && fireButton)
             {
+                --ammo;
                 fire = true;
                 ammoScript.active = true;
                 print("RunAmmo");

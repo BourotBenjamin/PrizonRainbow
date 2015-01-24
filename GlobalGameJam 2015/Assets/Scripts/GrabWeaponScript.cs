@@ -13,6 +13,8 @@ public class GrabWeaponScript : MonoBehaviour {
     private PlayerWeaponsScript playerTwoWeaponScript;
     [SerializeField]
     private int idWeapon = 1;
+    [SerializeField]
+    private int ammoValue = 1;
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
     
@@ -25,14 +27,16 @@ public class GrabWeaponScript : MonoBehaviour {
         {
             if (Input.GetButtonDown("P1_grabAmmo"))
             {
-                playerOneWeaponScript.SetScriptEnabled(idWeapon);
+                playerOneWeaponScript.SetScriptEnabled(idWeapon, ammoValue);
+                Destroy(this.gameObject);
             }
         }
         if (playerTwoInTrigger)
         {
             if (Input.GetButtonDown("P2_grabAmmo"))
             {
-                playerTwoWeaponScript.SetScriptEnabled(idWeapon);
+                playerTwoWeaponScript.SetScriptEnabled(idWeapon, ammoValue);
+                Destroy(this.gameObject);
             }
         }
 	}

@@ -33,8 +33,9 @@ public class GunScript : WeaponScript{
         }
 	    if(!fire)
         {
-            if(fireButton)
+            if(ammo > 0 && fireButton)
             {
+                --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
                 light.enabled = true;

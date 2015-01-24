@@ -16,7 +16,7 @@ public class PlayerWeaponsScript : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	public void SetScriptEnabled(int scriptId) 
+    public void SetScriptEnabled(int scriptId, int ammoValue) 
     {
         int i = 0;
         foreach(WeaponScript weaponScript in scripts)
@@ -25,13 +25,15 @@ public class PlayerWeaponsScript : MonoBehaviour {
             {
                 print("Script " + i + " enabled");
                 weaponScript.enabled = true;
+                weaponScript.setAmmo(ammoValue);
             }
             else
             {
                 print("Script " + i + " disaled");
                 weaponScript.enabled = false;
+                weaponScript.setAmmo(ammoValue);
             }
-            i++;
+            ++i;
         }
 	}
 }
