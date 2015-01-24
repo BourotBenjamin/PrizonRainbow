@@ -43,7 +43,7 @@ public class Zombihavior : MonoBehaviour {
 			{
 				if(go.GetComponent<Controller>().lightIsOn || go.GetComponent<ManetteController>().lightIsOn)
 				{
-					_viewRange=30;
+					_viewRange=20;
 				}
 
 				if(Vector3.Distance(transform.position, go.transform.position) < _viewRange)
