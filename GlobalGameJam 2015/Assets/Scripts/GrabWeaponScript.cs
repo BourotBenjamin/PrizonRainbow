@@ -25,18 +25,56 @@ public class GrabWeaponScript : MonoBehaviour {
     {
         if (playerOneInTrigger)
         {
+            int nextWeapon = idWeapon;
+            int nextAmmo = ammoValue;
             if (Input.GetButtonDown("P1_grabAmmo"))
             {
-                playerOneWeaponScript.SetScriptEnabled(idWeapon, ammoValue);
-                Destroy(this.gameObject);
+                int weapon = playerOneWeaponScript.getCurrentWeapon();
+                if(weapon != -1)
+                {
+                    int ammo = playerOneWeaponScript.getCurrentAmmo();
+                    if(ammo > 0)
+                    {
+                        this.idWeapon = weapon;
+                        this.ammoValue = ammo;
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                }
+                playerOneWeaponScript.SetScriptEnabled(nextWeapon, nextAmmo);
             }
         }
         if (playerTwoInTrigger)
         {
+            int nextWeapon = idWeapon;
+            int nextAmmo = ammoValue;
             if (Input.GetButtonDown("P2_grabAmmo"))
             {
-                playerTwoWeaponScript.SetScriptEnabled(idWeapon, ammoValue);
-                Destroy(this.gameObject);
+                int weapon = playerTwoWeaponScript.getCurrentWeapon();
+                if (weapon != -1)
+                {
+                    int ammo = playerTwoWeaponScript.getCurrentAmmo();
+                    if (ammo > 0)
+                    {
+                        this.idWeapon = weapon;
+                        this.ammoValue = ammo;
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                }
+                playerTwoWeaponScript.SetScriptEnabled(nextWeapon, nextAmmo);
             }
         }
 	}

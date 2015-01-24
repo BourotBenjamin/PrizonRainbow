@@ -56,4 +56,9 @@ public class ShotgunScript : WeaponScript{
             }
         }
 	}
+    public override int getWeaponId()
+    {
+        print("shotgun");
+        return 1;
+    }
 }

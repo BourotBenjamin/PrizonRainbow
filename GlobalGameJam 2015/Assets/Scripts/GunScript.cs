@@ -59,4 +59,9 @@ public class GunScript : WeaponScript{
             light.enabled = false;
         }
 	}
+    public override int getWeaponId()
+    {
+        print("gun");
+        return 0;
+    }
 }
