@@ -13,7 +13,7 @@ public class Zombihavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		_Joueurs = GameObject.FindGameObjectsWithTag("Joueur");
+		_Joueurs = GameObject.FindGameObjectsWithTag("player");
 	}
 	
 	// Update is called once per frame
@@ -36,29 +36,26 @@ public class Zombihavior : MonoBehaviour {
 	{
 		foreach(GameObject go in _Joueurs)
 		{
-			if(Vector3.Distance(transform.position, go.transform.position) < _viewRange)
+			if(go.activeSelf)
 			{
-				if(Vector3.Angle(transform.forward, (transform.position-go.transform.position)) < _viewAngle)
+				if(Vector3.Distance(transform.position, go.transform.position) < _viewRange)
 				{
-					if(Physics.Raycast(transform.position, transform.position-go.transform.position, Vector3.Distance(transform.position, go.transform.position)))
+					if(Vector3.Angle(transform.right, (go.transform.position - transform.position)) < _viewAngle)
 					{
-						//Obstacle dans le champs de vision
-					}
-					else
-					{
-						return go.transform.position;
+						if(Physics.Raycast(transform.position, go.transform.position - transform.position, Vector3.Distance(transform.position, go.transform.position), 1<<9))
+						{
+							return go.transform.position;
+						}
 					}
 				}
-			}
 			
-			
-			if(Vector3.Distance(transform.position, go.transform.position) < _hearRange)
-			{
-				return go.transform.position;
-
+				if(Vector3.Distance(transform.position, go.transform.position) < _hearRange)
+				{
+					return go.transform.position;
+				}
 			}
 		}
-		return Vector3.zero;
+		return _target;
 	}
 
 
@@ -66,7 +63,17 @@ public class Zombihavior : MonoBehaviour {
 	{ 
 		float AngleRad = Mathf.Atan2(_playerPosition.y - transform.position.y, _playerPosition.x - transform.position.x); 
 		float AngleDeg = (180 / Mathf.PI) * AngleRad; 
-		transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, AngleDeg), Time.deltaTime*10);
+	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		Debug.Log("collision : " + other.gameObject.name);
+		if(other.gameObject.tag == "player")
+		{
+			other.gameObject.SetActive(false);
+			_target = Vector3.zero;
+		}
 	}
 
 }

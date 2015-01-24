@@ -64,6 +64,15 @@ public class ManetteController : MonoBehaviour {
 
 	}
 		
+	void onCollisionEnter(Collider other)
+	{
+		if(other.tag == "Joueur")
+		{
+			other.gameObject.SetActive(false);
+		}
+	}
+
+
 	void Move()
 	{
 		float translationV = state.ThumbSticks.Left.Y * speed;
