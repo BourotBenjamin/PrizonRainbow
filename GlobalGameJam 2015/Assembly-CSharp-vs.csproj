@@ -62,6 +62,7 @@
      <Compile Include="Assets\2DVLS\Samples\Scripts\StressTest_VLS.cs" />
      <Compile Include="Assets\Scripts\CameraScirpt.cs" />
      <Compile Include="Assets\Scripts\Controller.cs" />
+     <Compile Include="Assets\Scripts\FireScript.cs" />
      <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Diffuse.shader" />
      <None Include="Assets\2DVLS\READ-ME.txt" />
      <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Cutout (2-Sided).shader" />
