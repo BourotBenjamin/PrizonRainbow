@@ -9,7 +9,7 @@ public class GrabWeaponScript : MonoBehaviour {
     [SerializeField]
     private int idWeapon = 1;
     [SerializeField]
-    private int ammoValue = 1;
+    private int ammoValue;
     private PlayerWeaponsScript playerOneWeaponScript;
     private PlayerWeaponsScript playerTwoWeaponScript;
     private bool playerOneInTrigger;

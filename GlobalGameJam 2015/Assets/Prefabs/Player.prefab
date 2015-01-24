@@ -703,7 +703,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7f2be65d02f1b1740ae118214241e28e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -715,14 +715,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: 1
-    endWidth: 1
+    startWidth: .0199999996
+    endWidth: .0199999996
     m_StartColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 1275068415
     m_EndColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 1275068415
   m_UseWorldSpace: 1
 --- !u!136 &13655472
 CapsuleCollider:
