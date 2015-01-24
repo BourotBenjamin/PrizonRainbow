@@ -15,6 +15,8 @@ public class GunScript : WeaponScript{
     private Light light;
     [SerializeField]
     private Transform playerTransform;
+    [SerializeField]
+    private BloodScript bloodScript;
 
 	void Start () {
 	
@@ -46,6 +48,7 @@ public class GunScript : WeaponScript{
                     if (hit.collider.tag == "mob")
                     {
                         Destroy(hit.collider.gameObject);
+                        bloodScript.showNextBlood(hit.collider.transform.position);
                     }
                 }
             }

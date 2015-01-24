@@ -14,6 +14,8 @@ public class ShotgunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
+    [SerializeField]
+    private BloodScript bloodScript;
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,6 +46,7 @@ public class ShotgunScript : WeaponScript{
                         print(hit.collider.tag);
                         if (hit.collider.tag == "mob")
                         {
+                            bloodScript.showNextBlood(hit.collider.transform.position);
                             Destroy(hit.collider.gameObject);
                         }
                     }
