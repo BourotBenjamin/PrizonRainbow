@@ -13,11 +13,13 @@ public class GunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
-    [SerializeField]
-    private Transform playerTransform;
 
-	void Start () {
-	
+	ManetteController _ctrl;
+
+
+	void Start () 
+	{
+		_ctrl = GetComponent<ManetteController>();
 	}
 	
 	// Update is called once per frame
@@ -33,14 +35,14 @@ public class GunScript : WeaponScript{
         }
 	    if(!fire)
         {
-            if(ammo > 0 && fireButton)
+            if(ammo > 0 && (fireButton || _ctrl.firebtn))
             {
                 --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
                 light.enabled = true;
                 RaycastHit hit;
-                if (Physics.Raycast(playerTransform.position, playerTransform.right, out hit, 100f))
+                if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
                 {
                     print(hit.collider.tag);
                     if (hit.collider.tag == "mob")
