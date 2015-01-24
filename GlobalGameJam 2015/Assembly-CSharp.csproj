@@ -64,6 +64,8 @@
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\FireScript.cs" />
      <Compile Include="Assets\Scripts\ManetteController.cs" />
+     <Compile Include="Assets\Scripts\ShotgunAmmoScript.cs" />
+     <Compile Include="Assets\Scripts\ShotgunFireScript.cs" />
      <Compile Include="Assets\Scripts\Zombihavior.cs" />
      <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
      <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Diffuse.shader" />

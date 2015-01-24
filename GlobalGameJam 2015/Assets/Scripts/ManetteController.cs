@@ -39,7 +39,7 @@ public class ManetteController : MonoBehaviour {
 		state = GamePad.GetState(playerIndex);
 		
 		// Detect if a button was pressed this frame
-		if (state.Buttons.A == ButtonState.Pressed)
+		if (state.Buttons.RightShoulder == ButtonState.Pressed)
 		{
 			//Shoot
 		}
