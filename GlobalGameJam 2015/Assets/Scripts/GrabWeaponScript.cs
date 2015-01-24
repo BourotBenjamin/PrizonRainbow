@@ -9,12 +9,11 @@ public class GrabWeaponScript : MonoBehaviour {
     [SerializeField]
     private int idWeapon = 1;
     [SerializeField]
-    private int ammoValue = 1;
+    private int ammoValue;
     private PlayerWeaponsScript playerOneWeaponScript;
     private PlayerWeaponsScript playerTwoWeaponScript;
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
-
 	int _index = 0;
 	int _index_2 = 1;
 
@@ -25,7 +24,7 @@ public class GrabWeaponScript : MonoBehaviour {
 	PlayerIndex playerIndex_2;
 	GamePadState state_2;
 	GamePadState prevState_2;
-    
+
     void Start()
     {
         playerOne = Camera.main.GetComponent<CameraScirpt>().playerOne;
