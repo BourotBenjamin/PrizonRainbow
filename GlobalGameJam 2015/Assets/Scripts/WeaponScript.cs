@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeaponScript : MonoBehaviour {
+public abstract class WeaponScript : MonoBehaviour {
 
     protected int ammo = 0;
 
@@ -9,4 +9,10 @@ public class WeaponScript : MonoBehaviour {
     {
         this.ammo = ammo;
     }
+    public int getAmmo()
+    {
+        return ammo;
+    }
+
+    public abstract int getWeaponId();
 }

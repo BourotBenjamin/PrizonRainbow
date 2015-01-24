@@ -4,13 +4,14 @@ using XInputDotNetPure;
 
 public class ManetteController : MonoBehaviour {
 
-	public float speed = 1;
+	public float speed = 6;
 	public GameObject _FlashlightUp;
 	public GameObject _FlashlightDown;
 	public GameObject _orientation;
 	public int _index; // numéro du joueur
+	public bool lightIsOn;
+	public bool firebtn;
 
-	bool playerIndexSet = false;
 	PlayerIndex playerIndex;
 	GamePadState state;
 	GamePadState prevState;
@@ -20,6 +21,8 @@ public class ManetteController : MonoBehaviour {
 	{
 		_FlashlightUp.SetActive(false);
 		_FlashlightDown.SetActive(false);
+		lightIsOn = false;
+		firebtn = false;
 	}
 	
 	// Update is called once per frame
@@ -29,9 +32,8 @@ public class ManetteController : MonoBehaviour {
 		GamePadState testState = GamePad.GetState(testPlayerIndex);
 		if (testState.IsConnected)
 		{
-			Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+			//Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
 			playerIndex = testPlayerIndex;
-			playerIndexSet = true;
 		}
 
 
@@ -46,15 +48,35 @@ public class ManetteController : MonoBehaviour {
 		// Detect if a button was released this frame
 		if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
 		{
-			_FlashlightUp.SetActive(true);
-			_FlashlightDown.SetActive(true);
+			if(!lightIsOn)
+			{
+				_FlashlightUp.SetActive(true);
+				_FlashlightDown.SetActive(true);
+				lightIsOn = true;
+			}
+			else
+			{
+				_FlashlightUp.SetActive(false);
+				_FlashlightDown.SetActive(false);
+				lightIsOn = false;
+			}
 		}
-		if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
+		/*if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
 		{
 			_FlashlightUp.SetActive(false);
 			_FlashlightDown.SetActive(false);
+			lightIsOn = false;
+		}*/
+		if (state.Buttons.RightShoulder == ButtonState.Pressed && prevState.Buttons.RightShoulder == ButtonState.Released)
+		{
+			firebtn = true;
 		}
-		
+		if (state.Buttons.RightShoulder == ButtonState.Released && prevState.Buttons.RightShoulder == ButtonState.Pressed )
+		{
+			firebtn = false;
+		}
+
+
 		// Set vibration according to triggers
 		GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
 		
@@ -77,9 +99,10 @@ public class ManetteController : MonoBehaviour {
 	{
 		float translationV = state.ThumbSticks.Left.Y * speed;
 		float translationH = state.ThumbSticks.Left.X * speed;
-		translationH *= Time.deltaTime;
-		translationV *= Time.deltaTime;
-		transform.Translate(translationH, translationV, 0, Space.World);
+		//translationH *= Time.deltaTime;
+		//translationV *= Time.deltaTime;
+		//transform.Translate(translationH, translationV, 0, Space.World);
+		rigidbody.velocity = new Vector3 (translationH, translationV, 0);
 	}
 	
 	void Watch()

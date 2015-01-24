@@ -12,6 +12,14 @@ public class GrabKeyScript : MonoBehaviour {
     [SerializeField]
     private KeyScript playerTwoKeyScript;
 
+    void Start()
+    {
+        playerOne = Camera.main.GetComponent<CameraScirpt>().playerOne.collider;
+        playerTwo = Camera.main.GetComponent<CameraScirpt>().playerTwo.collider;
+        playerOneKeyScript = playerOne.GetComponent<KeyScript>();
+        playerTwoKeyScript = playerTwo.GetComponent<KeyScript>();
+    }
+
 
     void OnTriggerEnter(Collider col)
     {
