@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShotgunFireScript : MonoBehaviour {
+public class ShotgunScript : WeaponScript{
 
     [SerializeField]
     private ShotgunAmmoScript ammoScript;
@@ -35,8 +35,10 @@ public class ShotgunFireScript : MonoBehaviour {
         {
             if (fireButton)
             {
+                fire = true;
                 ammoScript.enabled = true;
                 light.enabled = true;
+                fireTime = Time.timeSinceLevelLoad;
             }
         }
         else
