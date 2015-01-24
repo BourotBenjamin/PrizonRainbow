@@ -175,6 +175,7 @@ MonoBehaviour:
   _viewRange: 6
   _viewAngle: 35
   _speed: 3
+  _ZSounds: []
 --- !u!136 &13601452
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -200,7 +201,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 39c1d13f82ffac442a34d94df5ff010a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -208,7 +209,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c63a48f953406fb4289d3136eb12a262, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fffb9d6a13668a42bf5e31110e82d66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

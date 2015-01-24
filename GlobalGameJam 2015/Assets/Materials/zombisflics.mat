@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: zombisflics
-  m_Shader: {fileID: 4800000, guid: 3ad8de14b90d17f4f983d8f66606ea51, type: 3}
+  m_Shader: {fileID: 4800000, guid: 667607cda92a3aa45964892105ac0b09, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,10 +17,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c63a48f953406fb4289d3136eb12a262, type: 3}
+          m_Texture: {fileID: 2800000, guid: 3fffb9d6a13668a42bf5e31110e82d66, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+    m_Floats:
+      data:
+        first:
+          name: _Cutoff
+        second: .267857134
     m_Colors:
       data:
         first:
