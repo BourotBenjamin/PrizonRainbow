@@ -275,10 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160366aae27a56845b5c1f2c46be418e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 1201033992}
-  playerOneWeaponScript: {fileID: 1597967869}
-  playerTwoWeaponScript: {fileID: 1201033995}
   idWeapon: 1
   ammoValue: 15
 --- !u!4 &106194962
@@ -391,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOne: {fileID: 1597967865}
   playerTwo: {fileID: 1201033986}
+  bloodScript: {fileID: 0}
 --- !u!1 &120263063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,10 +1473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160366aae27a56845b5c1f2c46be418e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 1201033992}
-  playerOneWeaponScript: {fileID: 1597967869}
-  playerTwoWeaponScript: {fileID: 1201033995}
   idWeapon: 0
   ammoValue: 25
 --- !u!4 &915372370
@@ -2169,6 +2162,7 @@ MonoBehaviour:
   fireMinTime: 1
   fireLightTime: .25
   light: {fileID: 1914975681}
+  bloodScript: {fileID: 0}
 --- !u!114 &1201033995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3714,6 +3708,7 @@ MonoBehaviour:
   fireMinTime: 1
   fireLightTime: .25
   light: {fileID: 1588301938}
+  bloodScript: {fileID: 0}
 --- !u!114 &1597967869
 MonoBehaviour:
   m_ObjectHideFlags: 0

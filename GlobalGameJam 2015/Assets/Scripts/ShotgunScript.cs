@@ -17,16 +17,10 @@ public class ShotgunScript : WeaponScript{
     private BloodScript bloodScript;
 
 	ManetteController _ctrl;
-	
-	
-	void Start () 
-	{
-		_ctrl = GetComponent<ManetteController>();
-	}
 
     void Start()
     {
-        playerTransform = this.transform;
+		_ctrl = GetComponent<ManetteController>();
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
     }
 

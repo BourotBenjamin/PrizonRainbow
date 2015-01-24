@@ -14,9 +14,6 @@ public class GrabWeaponScript : MonoBehaviour {
     private PlayerWeaponsScript playerTwoWeaponScript;
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 	int _index = 0;
 	int _index_2 = 1;
 
@@ -28,10 +25,6 @@ public class GrabWeaponScript : MonoBehaviour {
 	GamePadState state_2;
 	GamePadState prevState_2;
 
-=======
-=======
->>>>>>> origin/master
-    
     void Start()
     {
         playerOne = Camera.main.GetComponent<CameraScirpt>().playerOne;
@@ -39,10 +32,6 @@ public class GrabWeaponScript : MonoBehaviour {
         playerOneWeaponScript = playerOne.GetComponent<PlayerWeaponsScript>();
         playerTwoWeaponScript = playerTwo.GetComponent<PlayerWeaponsScript>();
     }
-<<<<<<< HEAD
->>>>>>> dc5e2c34c7769e85f362bd56b244cc92c7edfc6e
-=======
->>>>>>> origin/master
 
 	// Use this for initialization
 	void Update ()
