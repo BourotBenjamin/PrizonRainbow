@@ -15,19 +15,15 @@ public class ShotgunScript : WeaponScript{
     private Light light;
     [SerializeField]
     private BloodScript bloodScript;
-
+    private LineRenderer lineRenderer;
 	ManetteController _ctrl;
 	
 	
 	void Start () 
 	{
 		_ctrl = GetComponent<ManetteController>();
-	}
-
-    void Start()
-    {
-        playerTransform = this.transform;
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
+        lineRenderer = this.GetComponent<LineRenderer>();
     }
 
 	// Update is called once per frame
@@ -56,6 +52,9 @@ public class ShotgunScript : WeaponScript{
                     qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
                     if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
                     {
+                        lineRenderer.SetVertexCount(2);
+                        lineRenderer.SetPosition(0, transform.position);
+                        lineRenderer.SetPosition(1, hit.collider.transform.position);
                         print(hit.collider.tag);
                         if (hit.collider.tag == "mob")
                         {
