@@ -19,7 +19,7 @@ public class ShotgunScript : WeaponScript{
     [SerializeField]
     private Texture playerTexture;
     [SerializeField]
-    private SpriteRenderer playerSprite;
+    private GameObject playerQuad;
 	
 	
 	void Start () 
@@ -92,7 +92,7 @@ public class ShotgunScript : WeaponScript{
     }
     public override void setAmmo(int ammo)
     {
-        playerSprite.material.SetTexture(0, playerTexture);
+        playerQuad.renderer.material.SetTexture(0, playerTexture);
         this.ammo = ammo;
     }
 }
