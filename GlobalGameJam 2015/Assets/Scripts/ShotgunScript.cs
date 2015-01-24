@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ShotgunScript : WeaponScript{
 
-    [SerializeField]
     private Transform playerTransform;
     private bool fire = false;
     private bool fireButton = false;
@@ -17,6 +16,12 @@ public class ShotgunScript : WeaponScript{
     [SerializeField]
     private BloodScript bloodScript;
 	
+    void Start()
+    {
+        playerTransform = this.transform;
+        bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
+    }
+
 	// Update is called once per frame
 	void Update () {
         

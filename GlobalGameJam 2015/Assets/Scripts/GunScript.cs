@@ -13,13 +13,12 @@ public class GunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
-    [SerializeField]
     private Transform playerTransform;
-    [SerializeField]
     private BloodScript bloodScript;
 
 	void Start () {
-	
+        playerTransform = this.transform;
+        bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
 	}
 	
 	// Update is called once per frame
