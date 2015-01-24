@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ShotgunAmmoScript : MonoBehaviour {
 
-	
 	// Update is called once per frame
     void OnTriggerStay(Collider collider)
     {
