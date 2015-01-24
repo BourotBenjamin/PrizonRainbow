@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FireScript : MonoBehaviour {
+public class GunScript : WeaponScript{
 
     // Use this for initialization
     private bool fire = false;

@@ -29,8 +29,9 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400000}
   - 108: {fileID: 10800000}
+  - 114: {fileID: 11400014}
+  - 114: {fileID: 11400000}
   - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: Player
@@ -414,15 +415,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e038469da8697e0439f886745765c61d, type: 3}
+  m_Script: {fileID: 11500000, guid: 30cf7feb5db46fc41969d996a38ba1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .25
-  light: {fileID: 10800002}
-  playerTransform: {fileID: 400002}
+  light: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,15 +553,26 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6502a32d0cc5ff4a86883ac6c486d37, type: 3}
+  m_Script: {fileID: 11500000, guid: 84eea0ae03f1e624fb6421ba52f8a272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammoScript: {fileID: 0}
   fireMinTime: 1
   fireLightTime: .25
-  light: {fileID: 10800002}
+  light: {fileID: 0}
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d024a0df73a71942a6d565876de3e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
