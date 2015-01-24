@@ -17,8 +17,22 @@ public class CameraScirpt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 dist = playerTwo.position - playerOne.position;
-        cameraTransform.position = playerOne.position + (dist / 2) + Vector3.back * 4;
-        cameraTransform.camera.orthographicSize = dist.magnitude;
+        if (playerTwo.gameObject.activeSelf && playerOne.gameObject.activeSelf)
+        {
+            Vector3 dist = playerTwo.position - playerOne.position;
+            cameraTransform.position = playerOne.position + (dist / 2) + Vector3.back * 4;
+            cameraTransform.camera.orthographicSize = Mathf.Max(6, dist.magnitude);
+        }
+        else if (playerTwo.gameObject.activeSelf)
+        {
+            cameraTransform.position = playerTwo.position + Vector3.back * 4;
+            cameraTransform.camera.orthographicSize = 6;
+        }
+        else if (playerOne.gameObject.activeSelf)
+        {
+            cameraTransform.position = playerOne.position + Vector3.back * 4;
+            cameraTransform.camera.orthographicSize = 6;
+        }
 	}
+
 }

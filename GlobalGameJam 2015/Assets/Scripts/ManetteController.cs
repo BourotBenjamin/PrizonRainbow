@@ -48,16 +48,25 @@ public class ManetteController : MonoBehaviour {
 		// Detect if a button was released this frame
 		if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
 		{
-			_FlashlightUp.SetActive(true);
-			_FlashlightDown.SetActive(true);
-			lightIsOn = true;
+			if(!lightIsOn)
+			{
+				_FlashlightUp.SetActive(true);
+				_FlashlightDown.SetActive(true);
+				lightIsOn = true;
+			}
+			else
+			{
+				_FlashlightUp.SetActive(false);
+				_FlashlightDown.SetActive(false);
+				lightIsOn = false;
+			}
 		}
-		if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
+		/*if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
 		{
 			_FlashlightUp.SetActive(false);
 			_FlashlightDown.SetActive(false);
 			lightIsOn = false;
-		}
+		}*/
 		if (state.Buttons.RightShoulder == ButtonState.Pressed && prevState.Buttons.RightShoulder == ButtonState.Released)
 		{
 			firebtn = true;

@@ -10,7 +10,7 @@ public class ShotgunScript : WeaponScript{
     [SerializeField]
     private float fireMinTime = 1;
     [SerializeField]
-    private float fireLightTime = 0.25f;
+    private float fireLightTime = 0.03f;
     [SerializeField]
     private Light light;
     [SerializeField]
@@ -28,7 +28,7 @@ public class ShotgunScript : WeaponScript{
 
 	// Update is called once per frame
 	void Update () {
-        
+        print(ammo);
         if (Input.GetButtonDown("Fire"))
         {
             fireButton = true;
@@ -47,14 +47,14 @@ public class ShotgunScript : WeaponScript{
                 fireTime = Time.timeSinceLevelLoad;
                 RaycastHit hit;
                 Quaternion qt;
+                lineRenderer.SetVertexCount(20);
                 for (int i = 0; i < 10; ++i )
                 {
                     qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
                     if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
                     {
-                        lineRenderer.SetVertexCount(2);
-                        lineRenderer.SetPosition(0, transform.position);
-                        lineRenderer.SetPosition(1, hit.collider.transform.position);
+                        lineRenderer.SetPosition((i * 2) + 0, transform.position);
+                        lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
                         print(hit.collider.tag);
                         if (hit.collider.tag == "mob")
                         {
@@ -62,7 +62,13 @@ public class ShotgunScript : WeaponScript{
                             Destroy(hit.collider.gameObject);
                         }
                     }
+                    else
+                    {
+                        lineRenderer.SetPosition((i * 2) + 0, transform.position);
+                        lineRenderer.SetPosition((i * 2) + 1, transform.position + (qt * transform.right * 10));
+                    }
                 }
+                lineRenderer.enabled = true;
             }
         }
         else
@@ -74,6 +80,8 @@ public class ShotgunScript : WeaponScript{
             else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
             {
                 light.enabled = false;
+                lineRenderer.enabled = false;
+                lineRenderer.SetVertexCount(0);
             }
         }
 	}
