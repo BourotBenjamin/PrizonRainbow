@@ -13,6 +13,8 @@ public class GrabWeaponScript : MonoBehaviour {
     private PlayerWeaponsScript playerTwoWeaponScript;
     [SerializeField]
     private int idWeapon = 1;
+    [SerializeField]
+    private int ammoValue = 1;
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
     
@@ -25,15 +27,16 @@ public class GrabWeaponScript : MonoBehaviour {
         {
             if (Input.GetButtonDown("P1_grabAmmo"))
             {
-                playerOneWeaponScript.SetScriptEnabled(idWeapon);
-                this.renderer.material.color = Color.red;
+                playerOneWeaponScript.SetScriptEnabled(idWeapon, ammoValue);
+                Destroy(this.gameObject);
             }
         }
         if (playerTwoInTrigger)
         {
             if (Input.GetButtonDown("P2_grabAmmo"))
             {
-                playerTwoWeaponScript.SetScriptEnabled(idWeapon);
+                playerTwoWeaponScript.SetScriptEnabled(idWeapon, ammoValue);
+                Destroy(this.gameObject);
             }
         }
 	}
@@ -43,10 +46,12 @@ public class GrabWeaponScript : MonoBehaviour {
         if (col == playerOne)
         {
             playerOneInTrigger = true;
+            print("P2In");
         }
         if (col == playerTwo)
         {
             playerTwoInTrigger = true;
+            print("P1In");
         }
     }
     // Update is called once per frame
@@ -55,10 +60,12 @@ public class GrabWeaponScript : MonoBehaviour {
         if (col == playerOne)
         {
             playerOneInTrigger = false;
+            print("P1Out");
         }
         if (col == playerTwo)
         {
             playerTwoInTrigger = false;
+            print("P2Out");
         }
     }
 }

@@ -33,16 +33,20 @@ public class GunScript : WeaponScript{
         }
 	    if(!fire)
         {
-            if(fireButton)
+            if(ammo > 0 && fireButton)
             {
+                --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
                 light.enabled = true;
                 RaycastHit hit;
                 if (Physics.Raycast(playerTransform.position, playerTransform.right, out hit, 100f))
-                if(hit.collider.tag == "mob")
                 {
-                    Destroy(hit.collider.gameObject);
+                    print(hit.collider.tag);
+                    if (hit.collider.tag == "mob")
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
                 }
             }
         }

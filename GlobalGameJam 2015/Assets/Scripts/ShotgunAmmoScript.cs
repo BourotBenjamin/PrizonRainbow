@@ -3,12 +3,22 @@ using System.Collections;
 
 public class ShotgunAmmoScript : MonoBehaviour {
 
-	// Update is called once per frame
+    public bool active;
+
+    void Start()
+    {
+        this.active = false;
+    }
+
+    // Update is called once per frame
     void OnTriggerStay(Collider collider)
     {
-	    if(collider.tag == "player")
+        if (active)
         {
-            Destroy(collider.gameObject);
+            if (collider.tag == "mob")
+            {
+                Destroy(collider.gameObject);
+            }
         }
-	}
+    }
 }
