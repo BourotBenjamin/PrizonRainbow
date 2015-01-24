@@ -6,7 +6,11 @@ public class Controller : MonoBehaviour {
 	public float speed = 1;
 	public GameObject _FlashlightUp;
 	public GameObject _FlashlightDown;
-
+    [SerializeField]
+    private string verticalAxis;
+    [SerializeField]
+    private string horizontalAxis;
+    
 	// Use this for initialization
 	void Start () 
 	{
@@ -36,8 +40,8 @@ public class Controller : MonoBehaviour {
 
 	void Move()
 	{
-		float translationV = Input.GetAxis("Vertical") * speed;
-		float translationH = Input.GetAxis("Horizontal") * speed;
+        float translationV = Input.GetAxis(verticalAxis) * speed;
+        float translationH = Input.GetAxis(horizontalAxis) * speed;
 		translationH *= Time.deltaTime;
 		translationV *= Time.deltaTime;
 		transform.Translate(translationH, translationV, 0, Space.World);
