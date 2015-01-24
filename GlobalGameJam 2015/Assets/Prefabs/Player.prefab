@@ -50,7 +50,7 @@ GameObject:
   - 23: {fileID: 2300002}
   - 33: {fileID: 3300002}
   - 114: {fileID: 11400004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlashlightDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - 23: {fileID: 2300004}
   - 33: {fileID: 3300004}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlashlightUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - 23: {fileID: 2300006}
   - 33: {fileID: 3300006}
   - 114: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D-Radial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
