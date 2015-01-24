@@ -46,7 +46,6 @@ public class GunScript : WeaponScript{
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
                 {
-                    print(hit.collider.tag);
                     if (hit.collider.tag == "mob")
                     {
                         Destroy(hit.collider.gameObject);
@@ -66,7 +65,6 @@ public class GunScript : WeaponScript{
 	}
     public override int getWeaponId()
     {
-        print("gun");
         return 0;
     }
 }
