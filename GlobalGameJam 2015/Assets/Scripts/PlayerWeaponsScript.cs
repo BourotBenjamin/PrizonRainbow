@@ -24,14 +24,12 @@ public class PlayerWeaponsScript : MonoBehaviour {
         {
             if (i == scriptId)
             {
-                print("Script " + i + " enabled");
                 weaponScript.enabled = true;
                 weaponScript.setAmmo(ammoValue);
                 currentWeapon = weaponScript;
             }
             else
             {
-                print("Script " + i + " disaled");
                 weaponScript.enabled = false;
                 weaponScript.setAmmo(ammoValue);
             }

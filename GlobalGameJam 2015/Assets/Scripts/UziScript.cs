@@ -1,32 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShotgunScript : WeaponScript{
-
+public class UziScript : WeaponScript {
 
     private bool fire = false;
     private bool fireButton = false;
     private float fireTime = 0;
     [SerializeField]
-    private float fireMinTime = 1;
+    private float fireMinTime = 0.1f;
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
     private Light light;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
-	ManetteController _ctrl;
-	
-	
-	void Start () 
-	{
-		_ctrl = GetComponent<ManetteController>();
+    ManetteController _ctrl;
+
+
+    void Start()
+    {
+        _ctrl = GetComponent<ManetteController>();
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
         lineRenderer = this.GetComponent<LineRenderer>();
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetButtonDown("Fire"))
         {
             fireButton = true;
@@ -37,7 +37,7 @@ public class ShotgunScript : WeaponScript{
         }
         if (!fire)
         {
-			if (ammo > 0 && (fireButton || _ctrl.firebtn ))
+            if (ammo > 0 && (fireButton || _ctrl.firebtn))
             {
                 --ammo;
                 fire = true;
@@ -45,25 +45,23 @@ public class ShotgunScript : WeaponScript{
                 fireTime = Time.timeSinceLevelLoad;
                 RaycastHit hit;
                 Quaternion qt;
-                lineRenderer.SetVertexCount(20);
-                for (int i = 0; i < 10; ++i )
+                lineRenderer.SetVertexCount(2);
+                qt = Quaternion.AngleAxis(Random.Range(-5, 5), Vector3.forward);
+                Debug.DrawRay(transform.position, qt * transform.right, Color.green, 15);
+                if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
                 {
-                    qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
-                    if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, hit.collider.transform.position);
+                    if (hit.collider.tag == "mob")
                     {
-                        lineRenderer.SetPosition((i * 2) + 0, transform.position);
-                        lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
-                        if (hit.collider.tag == "mob")
-                        {
-                            bloodScript.showNextBlood(hit.collider.transform.position);
-                            Destroy(hit.collider.gameObject);
-                        }
+                        bloodScript.showNextBlood(hit.collider.transform.position);
+                        Destroy(hit.collider.gameObject);
                     }
-                    else
-                    {
-                        lineRenderer.SetPosition((i * 2) + 0, transform.position);
-                        lineRenderer.SetPosition((i * 2) + 1, transform.position + (qt * transform.right * 10));
-                    }
+                }
+                else
+                {
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, transform.position + (qt * transform.right * 10));
                 }
                 lineRenderer.enabled = true;
             }
@@ -81,9 +79,9 @@ public class ShotgunScript : WeaponScript{
                 lineRenderer.SetVertexCount(0);
             }
         }
-	}
+    }
     public override int getWeaponId()
     {
-        return 1;
+        return 2;
     }
 }
