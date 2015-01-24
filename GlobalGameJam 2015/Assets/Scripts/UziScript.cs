@@ -51,7 +51,7 @@ public class UziScript : WeaponScript {
                 Quaternion qt;
                 lineRenderer.SetVertexCount(2);
                 qt = Quaternion.AngleAxis(Random.Range(-5, 5), Vector3.forward);
-                if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
+                if (Physics.Raycast(transform.position + transform.forward * 0.4f, qt * transform.right, out hit, 100f))
                 {
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, hit.collider.transform.position);

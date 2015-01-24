@@ -53,7 +53,7 @@ public class ShotgunScript : WeaponScript{
                 for (int i = 0; i < 10; ++i )
                 {
                     qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
-                    if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
+                    if (Physics.Raycast(transform.position + transform.forward * 0.4f, qt * transform.right, out hit, 100f))
                     {
                         lineRenderer.SetPosition((i * 2) + 0, transform.position);
                         lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
