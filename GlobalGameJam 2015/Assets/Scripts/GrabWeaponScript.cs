@@ -10,6 +10,8 @@ public class GrabWeaponScript : MonoBehaviour {
     private int idWeapon = 1;
     [SerializeField]
     private int ammoValue;
+	[SerializeField]
+	private AudioClip _gunFound;
     private PlayerWeaponsScript playerOneWeaponScript;
     private PlayerWeaponsScript playerTwoWeaponScript;
     private bool playerOneInTrigger;
@@ -65,6 +67,7 @@ public class GrabWeaponScript : MonoBehaviour {
             int nextAmmo = ammoValue;
 			if (Input.GetButtonDown("P1_grabAmmo") || (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released))
             {
+				playerOne.audio.PlayOneShot(_gunFound);
                 int weapon = playerOneWeaponScript.getCurrentWeapon();
                 if(weapon != -1)
                 {
@@ -92,6 +95,7 @@ public class GrabWeaponScript : MonoBehaviour {
             int nextAmmo = ammoValue;
 			if (Input.GetButtonDown("P2_grabAmmo") || (state_2.Buttons.A == ButtonState.Pressed && prevState_2.Buttons.A == ButtonState.Released  ))
             {
+				playerTwo.audio.PlayOneShot(_gunFound);
                 int weapon = playerTwoWeaponScript.getCurrentWeapon();
                 if (weapon != -1)
                 {

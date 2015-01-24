@@ -15,6 +15,12 @@ public class ShotgunScript : WeaponScript{
     private Light light;
     [SerializeField]
     private BloodScript bloodScript;
+	[SerializeField]
+	private AudioClip _shotgunShot;
+	[SerializeField]
+	private AudioClip[] _bigGoreSounds;
+
+
     private LineRenderer lineRenderer;
 	ManetteController _ctrl;
 	
@@ -44,6 +50,7 @@ public class ShotgunScript : WeaponScript{
                 --ammo;
                 fire = true;
                 light.enabled = true;
+				audio.PlayOneShot(_shotgunShot);
                 fireTime = Time.timeSinceLevelLoad;
                 RaycastHit hit;
                 Quaternion qt;
@@ -58,6 +65,7 @@ public class ShotgunScript : WeaponScript{
                         print(hit.collider.tag);
                         if (hit.collider.tag == "mob")
                         {
+							hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Mathf.FloorToInt(Random.Range(0f, _bigGoreSounds.Length-0.01f))]);
                             bloodScript.showNextBlood(hit.collider.transform.position);
                             Destroy(hit.collider.gameObject);
                         }

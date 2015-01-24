@@ -5,10 +5,13 @@ public class OpenDoorScript : MonoBehaviour {
 
     [SerializeField]
     private bool keyNeeded;
+	[SerializeField]
+	private AudioClip _useKey; 
+	[SerializeField]
+	private AudioClip _metalDoor; 
 
     void Start()
     {
-        
     }
 
 	// Use this for initialization
@@ -16,7 +19,12 @@ public class OpenDoorScript : MonoBehaviour {
     {
         if (!keyNeeded || (col.GetComponent<KeyScript>().hasKey()))
         {
-            Destroy(this.gameObject);
+			Camera.main.audio.PlayOneShot(_useKey);
+            Destroy(this.gameObject, 0.2f);
         }
 	}
+	void OnDestroy() {
+		Camera.main.audio.PlayOneShot(_metalDoor);
+	}
+
 }

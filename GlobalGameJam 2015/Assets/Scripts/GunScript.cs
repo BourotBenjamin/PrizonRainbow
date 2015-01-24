@@ -13,6 +13,12 @@ public class GunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
+	[SerializeField]
+	private AudioClip _gunShot;
+	[SerializeField]
+	private AudioClip[] _goreSounds;
+
+
 	ManetteController _ctrl;    
     private BloodScript bloodScript;
 
@@ -42,6 +48,7 @@ public class GunScript : WeaponScript{
                 --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
+				audio.PlayOneShot(_gunShot);
                 light.enabled = true;
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
@@ -49,6 +56,7 @@ public class GunScript : WeaponScript{
                     print(hit.collider.tag);
                     if (hit.collider.tag == "mob")
                     {
+						hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length-0.01f))]);
                         Destroy(hit.collider.gameObject);
                         bloodScript.showNextBlood(hit.collider.transform.position);
                     }
