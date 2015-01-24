@@ -10,18 +10,24 @@ public class GunScript : WeaponScript{
     [SerializeField]
     private float fireMinTime = 1;
     [SerializeField]
-    private float fireLightTime = 0.25f;
+    private float fireLightTime = 0.03f;
     [SerializeField]
     private Light light;
-	ManetteController _ctrl;    
+	ManetteController _ctrl;
     private BloodScript bloodScript;
+    private LineRenderer lineRenderer;
+    [SerializeField]
+    private Texture playerTexture;
+    [SerializeField]
+    private SpriteRenderer playerSprite;
 
 
 
 	void Start () 
 	{
-		_ctrl = GetComponent<ManetteController>();        
+		_ctrl = GetComponent<ManetteController>();
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
+        lineRenderer = this.GetComponent<LineRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -44,14 +50,23 @@ public class GunScript : WeaponScript{
                 fireTime = Time.timeSinceLevelLoad;
                 light.enabled = true;
                 RaycastHit hit;
+                lineRenderer.SetVertexCount(2);
                 if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
                 {
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, hit.collider.transform.position);
                     if (hit.collider.tag == "mob")
                     {
                         Destroy(hit.collider.gameObject);
                         bloodScript.showNextBlood(hit.collider.transform.position);
                     }
                 }
+                else
+                {
+                    lineRenderer.SetPosition(0, transform.position);
+                    lineRenderer.SetPosition(1, transform.position + (transform.right * 10));
+                }
+                lineRenderer.enabled = true;
             }
         }
         else if(Time.timeSinceLevelLoad - fireTime > fireMinTime )
@@ -61,10 +76,16 @@ public class GunScript : WeaponScript{
         else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
         {
             light.enabled = false;
+            lineRenderer.enabled = false;
         }
 	}
     public override int getWeaponId()
     {
         return 0;
+    }
+    public override void setAmmo(int ammo)
+    {
+        playerSprite.material.SetTexture(0, playerTexture);
+        this.ammo = ammo;
     }
 }

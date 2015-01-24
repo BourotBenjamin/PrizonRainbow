@@ -15,7 +15,11 @@ public class ShotgunScript : WeaponScript{
     private Light light;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
-	ManetteController _ctrl;
+    ManetteController _ctrl;
+    [SerializeField]
+    private Texture playerTexture;
+    [SerializeField]
+    private SpriteRenderer playerSprite;
 	
 	
 	void Start () 
@@ -85,5 +89,10 @@ public class ShotgunScript : WeaponScript{
     public override int getWeaponId()
     {
         return 1;
+    }
+    public override void setAmmo(int ammo)
+    {
+        playerSprite.material.SetTexture(0, playerTexture);
+        this.ammo = ammo;
     }
 }

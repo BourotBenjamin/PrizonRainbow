@@ -1171,6 +1171,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2300000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1215,6 +1219,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .25
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a2301c93e3876a4d934a34d1ed32a34, type: 2}
+    - target: {fileID: 2300000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 743cc970a1943514794ab77ea533d9a4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f15d8fc0dd700f74d9e3aac4f952308f, type: 2}
   m_RootGameObject: {fileID: 1812980367}
@@ -1506,8 +1518,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
-  fireLightTime: .25
+  fireLightTime: .0299999993
   light: {fileID: 857406135}
+  playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
+  playerSprite: {fileID: 1637558397}
 --- !u!114 &912186784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,8 +1535,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
-  fireLightTime: .25
+  fireLightTime: .0299999993
   light: {fileID: 857406135}
+  playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
+  playerSprite: {fileID: 1637558397}
 --- !u!114 &912186785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,6 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d024a0df73a71942a6d565876de3e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idJoueur: 0
 --- !u!108 &912186786
 Light:
   m_ObjectHideFlags: 0
@@ -1713,6 +1730,8 @@ MonoBehaviour:
   fireMinTime: .100000001
   fireLightTime: .0299999993
   light: {fileID: 857406135}
+  playerTexture: {fileID: 2800000, guid: bf1d8199299c74844bc32c48138e5a5f, type: 3}
+  playerSprite: {fileID: 1637558397}
 --- !u!120 &912186796
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2182,6 +2201,7 @@ MonoBehaviour:
   _viewRange: 6
   _viewAngle: 35
   _speed: 3
+  _ZSounds: []
 --- !u!23 &1062244522
 Renderer:
   m_ObjectHideFlags: 0
@@ -2968,6 +2988,7 @@ MonoBehaviour:
   _viewRange: 6
   _viewAngle: 35
   _speed: 3
+  _ZSounds: []
 --- !u!23 &1393456439
 Renderer:
   m_ObjectHideFlags: 0
@@ -3075,6 +3096,7 @@ MonoBehaviour:
   _viewRange: 6
   _viewAngle: 35
   _speed: 3
+  _ZSounds: []
 --- !u!23 &1399648520
 Renderer:
   m_ObjectHideFlags: 0
@@ -3376,8 +3398,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
-  fireLightTime: .25
+  fireLightTime: .0299999993
   light: {fileID: 229211064}
+  playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
+  playerSprite: {fileID: 1449004139}
 --- !u!108 &1475507266
 Light:
   m_ObjectHideFlags: 0
@@ -3427,8 +3451,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
-  fireLightTime: .25
+  fireLightTime: .0299999993
   light: {fileID: 229211064}
+  playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
+  playerSprite: {fileID: 1449004139}
 --- !u!54 &1475507268
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3537,6 +3563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d024a0df73a71942a6d565876de3e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idJoueur: 0
 --- !u!114 &1475507275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3583,6 +3610,8 @@ MonoBehaviour:
   fireMinTime: .100000001
   fireLightTime: .0299999993
   light: {fileID: 229211064}
+  playerTexture: {fileID: 2800000, guid: bf1d8199299c74844bc32c48138e5a5f, type: 3}
+  playerSprite: {fileID: 1449004139}
 --- !u!120 &1475507278
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4075,6 +4104,7 @@ MonoBehaviour:
   _viewRange: 6
   _viewAngle: 35
   _speed: 3
+  _ZSounds: []
 --- !u!23 &1719380368
 Renderer:
   m_ObjectHideFlags: 0
@@ -4418,7 +4448,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2a2301c93e3876a4d934a34d1ed32a34, type: 2}
+  - {fileID: 2100000, guid: 743cc970a1943514794ab77ea533d9a4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

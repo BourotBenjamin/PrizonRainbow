@@ -497,8 +497,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
-  fireLightTime: .25
+  fireLightTime: .0299999993
   light: {fileID: 10800002}
+  playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
+  playerSprite: {fileID: 21256724}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -636,8 +638,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMinTime: 1
-  fireLightTime: .25
+  fireLightTime: .0299999993
   light: {fileID: 10800002}
+  playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
+  playerSprite: {fileID: 21256724}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -649,6 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d024a0df73a71942a6d565876de3e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idJoueur: 0
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -674,6 +679,8 @@ MonoBehaviour:
   fireMinTime: .100000001
   fireLightTime: .0299999993
   light: {fileID: 10800002}
+  playerTexture: {fileID: 2800000, guid: bf1d8199299c74844bc32c48138e5a5f, type: 3}
+  playerSprite: {fileID: 21256724}
 --- !u!114 &11402520
 MonoBehaviour:
   m_ObjectHideFlags: 1

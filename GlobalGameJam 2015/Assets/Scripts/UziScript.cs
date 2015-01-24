@@ -15,6 +15,10 @@ public class UziScript : WeaponScript {
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
     ManetteController _ctrl;
+    [SerializeField]
+    private Texture playerTexture;
+    [SerializeField]
+    private SpriteRenderer playerSprite;
 
 
     void Start()
@@ -47,7 +51,6 @@ public class UziScript : WeaponScript {
                 Quaternion qt;
                 lineRenderer.SetVertexCount(2);
                 qt = Quaternion.AngleAxis(Random.Range(-5, 5), Vector3.forward);
-                Debug.DrawRay(transform.position, qt * transform.right, Color.green, 15);
                 if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
                 {
                     lineRenderer.SetPosition(0, transform.position);
@@ -83,5 +86,11 @@ public class UziScript : WeaponScript {
     public override int getWeaponId()
     {
         return 2;
+    }
+
+    public override void setAmmo(int ammo)
+    {
+        playerSprite.material.SetTexture(0, playerTexture);
+        this.ammo = ammo;
     }
 }

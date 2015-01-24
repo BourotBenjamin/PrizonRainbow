@@ -6,6 +6,8 @@ public class PlayerWeaponsScript : MonoBehaviour {
 
     private WeaponScript[] scripts;
     private WeaponScript currentWeapon;
+    [SerializeField]
+    private int idJoueur;
 	
     void Start()
     {
@@ -31,7 +33,6 @@ public class PlayerWeaponsScript : MonoBehaviour {
             else
             {
                 weaponScript.enabled = false;
-                weaponScript.setAmmo(ammoValue);
             }
             ++i;
         }
@@ -50,6 +51,15 @@ public class PlayerWeaponsScript : MonoBehaviour {
             return currentWeapon.getAmmo();
         else
             return -1;
+    }
+
+    public void OnGUI()
+    {
+        if(currentWeapon != null)
+        { 
+            int ammo = currentWeapon.getAmmo();
+            GUI.Label(new Rect(idJoueur*100+10, 10, 100, 100), "Ammo : " + ammo);
+        }
     }
 
 }
