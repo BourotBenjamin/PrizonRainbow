@@ -3,10 +3,7 @@ using System.Collections;
 
 public class ShotgunScript : WeaponScript{
 
-<<<<<<< HEAD
-=======
-    private Transform playerTransform;
->>>>>>> dc5e2c34c7769e85f362bd56b244cc92c7edfc6e
+
     private bool fire = false;
     private bool fireButton = false;
     private float fireTime = 0;
@@ -18,8 +15,7 @@ public class ShotgunScript : WeaponScript{
     private Light light;
     [SerializeField]
     private BloodScript bloodScript;
-	
-<<<<<<< HEAD
+
 	ManetteController _ctrl;
 	
 	
@@ -27,13 +23,12 @@ public class ShotgunScript : WeaponScript{
 	{
 		_ctrl = GetComponent<ManetteController>();
 	}
-=======
+
     void Start()
     {
         playerTransform = this.transform;
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
     }
->>>>>>> dc5e2c34c7769e85f362bd56b244cc92c7edfc6e
 
 	// Update is called once per frame
 	void Update () {

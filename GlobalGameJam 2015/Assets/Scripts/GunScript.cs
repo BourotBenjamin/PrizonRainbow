@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GunScript : WeaponScript{
@@ -13,22 +13,15 @@ public class GunScript : WeaponScript{
     private float fireLightTime = 0.25f;
     [SerializeField]
     private Light light;
-<<<<<<< HEAD
+	ManetteController _ctrl;    
+    private BloodScript bloodScript;
 
-	ManetteController _ctrl;
 
 
 	void Start () 
 	{
-		_ctrl = GetComponent<ManetteController>();
-=======
-    private Transform playerTransform;
-    private BloodScript bloodScript;
-
-	void Start () {
-        playerTransform = this.transform;
+		_ctrl = GetComponent<ManetteController>();        
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
->>>>>>> dc5e2c34c7769e85f362bd56b244cc92c7edfc6e
 	}
 	
 	// Update is called once per frame
@@ -57,6 +50,7 @@ public class GunScript : WeaponScript{
                     if (hit.collider.tag == "mob")
                     {
                         Destroy(hit.collider.gameObject);
+                        bloodScript.showNextBlood(hit.collider.transform.position);
                     }
                 }
             }
