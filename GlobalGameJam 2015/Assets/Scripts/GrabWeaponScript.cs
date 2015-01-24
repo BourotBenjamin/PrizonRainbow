@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class GrabWeaponScript : MonoBehaviour {
 
@@ -13,6 +14,23 @@ public class GrabWeaponScript : MonoBehaviour {
     private PlayerWeaponsScript playerTwoWeaponScript;
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+	int _index = 0;
+	int _index_2 = 1;
+
+	PlayerIndex playerIndex;
+	GamePadState state;
+	GamePadState prevState;
+
+	PlayerIndex playerIndex_2;
+	GamePadState state_2;
+	GamePadState prevState_2;
+
+=======
+=======
+>>>>>>> origin/master
     
     void Start()
     {
@@ -21,15 +39,42 @@ public class GrabWeaponScript : MonoBehaviour {
         playerOneWeaponScript = playerOne.GetComponent<PlayerWeaponsScript>();
         playerTwoWeaponScript = playerTwo.GetComponent<PlayerWeaponsScript>();
     }
+<<<<<<< HEAD
+>>>>>>> dc5e2c34c7769e85f362bd56b244cc92c7edfc6e
+=======
+>>>>>>> origin/master
 
 	// Use this for initialization
 	void Update ()
     {
+		PlayerIndex testPlayerIndex = (PlayerIndex)_index;
+		GamePadState testState = GamePad.GetState(testPlayerIndex);
+		if (testState.IsConnected)
+		{
+			playerIndex = testPlayerIndex;
+		}
+		
+		
+		prevState = state;
+		state = GamePad.GetState(playerIndex);
+
+		PlayerIndex testPlayerIndex_2 = (PlayerIndex)_index_2;
+		GamePadState testState_2 = GamePad.GetState(testPlayerIndex_2);
+		if (testState_2.IsConnected)
+		{
+			playerIndex_2 = testPlayerIndex_2;
+		}
+		
+		
+		prevState_2 = state_2;
+		state_2 = GamePad.GetState(playerIndex_2);
+
+
         if (playerOneInTrigger)
         {
             int nextWeapon = idWeapon;
             int nextAmmo = ammoValue;
-            if (Input.GetButtonDown("P1_grabAmmo"))
+			if (Input.GetButtonDown("P1_grabAmmo") || (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released))
             {
                 int weapon = playerOneWeaponScript.getCurrentWeapon();
                 if(weapon != -1)
@@ -56,7 +101,7 @@ public class GrabWeaponScript : MonoBehaviour {
         {
             int nextWeapon = idWeapon;
             int nextAmmo = ammoValue;
-            if (Input.GetButtonDown("P2_grabAmmo"))
+			if (Input.GetButtonDown("P2_grabAmmo") || (state_2.Buttons.A == ButtonState.Pressed && prevState_2.Buttons.A == ButtonState.Released  ))
             {
                 int weapon = playerTwoWeaponScript.getCurrentWeapon();
                 if (weapon != -1)

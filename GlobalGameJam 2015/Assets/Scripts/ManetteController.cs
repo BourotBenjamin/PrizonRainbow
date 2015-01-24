@@ -10,8 +10,8 @@ public class ManetteController : MonoBehaviour {
 	public GameObject _orientation;
 	public int _index; // numéro du joueur
 	public bool lightIsOn;
+	public bool firebtn;
 
-	bool playerIndexSet = false;
 	PlayerIndex playerIndex;
 	GamePadState state;
 	GamePadState prevState;
@@ -22,6 +22,7 @@ public class ManetteController : MonoBehaviour {
 		_FlashlightUp.SetActive(false);
 		_FlashlightDown.SetActive(false);
 		lightIsOn = false;
+		firebtn = false;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +34,6 @@ public class ManetteController : MonoBehaviour {
 		{
 			//Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
 			playerIndex = testPlayerIndex;
-			playerIndexSet = true;
 		}
 
 
@@ -58,7 +58,16 @@ public class ManetteController : MonoBehaviour {
 			_FlashlightDown.SetActive(false);
 			lightIsOn = false;
 		}
-		
+		if (state.Buttons.RightShoulder == ButtonState.Pressed && prevState.Buttons.RightShoulder == ButtonState.Released)
+		{
+			firebtn = true;
+		}
+		if (state.Buttons.RightShoulder == ButtonState.Released && prevState.Buttons.RightShoulder == ButtonState.Pressed )
+		{
+			firebtn = false;
+		}
+
+
 		// Set vibration according to triggers
 		GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
 		
