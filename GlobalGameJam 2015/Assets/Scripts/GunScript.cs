@@ -51,7 +51,7 @@ public class GunScript : WeaponScript{
                 gunLight.enabled = true;
                 RaycastHit hit;
                 lineRenderer.SetVertexCount(2);
-                if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
+                if (Physics.Raycast(transform.position + transform.forward * 0.4f, transform.right, out hit, 100f))
                 {
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, hit.collider.transform.position);
