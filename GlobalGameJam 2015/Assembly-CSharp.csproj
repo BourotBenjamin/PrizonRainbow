@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\OpenDoorScript.cs" />
      <Compile Include="Assets\Scripts\PlayerWeaponsScript.cs" />
      <Compile Include="Assets\Scripts\ShotgunScript.cs" />
+     <Compile Include="Assets\Scripts\SpawnOnTriggerEnter.cs" />
      <Compile Include="Assets\Scripts\UziScript.cs" />
      <Compile Include="Assets\Scripts\WeaponScript.cs" />
      <Compile Include="Assets\Scripts\Zombihavior.cs" />
