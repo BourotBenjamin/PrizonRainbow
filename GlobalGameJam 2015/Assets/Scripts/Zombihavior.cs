@@ -29,7 +29,10 @@ public class Zombihavior : MonoBehaviour {
 		if(_target != Vector3.zero)
 		{
 			WatchPlayer(_target);
-			transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
+			//transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
+			//transform.position -= new Vector3(0,0,transform.position.z+0.5f);
+			_target.z = transform.position.z;
+			rigidbody.velocity = ((_target-transform.position).normalized*_speed);
 		}
 		if(Vector3.Distance(transform.position, _target) < 0.1f)
 		{
@@ -52,7 +55,7 @@ public class Zombihavior : MonoBehaviour {
 			{
 				if(go.GetComponent<Controller>().lightIsOn || go.GetComponent<ManetteController>().lightIsOn)
 				{
-					_viewRange=30;
+					_viewRange=20;
 				}
 
 				if(Vector3.Distance(transform.position, go.transform.position) < _viewRange)

@@ -13,7 +13,6 @@ public class ShotgunScript : WeaponScript{
     private float fireLightTime = 0.03f;
     [SerializeField]
     private Light light;
-    [SerializeField]
     private BloodScript bloodScript;
 	[SerializeField]
 	private AudioClip _shotgunShot;
@@ -34,7 +33,6 @@ public class ShotgunScript : WeaponScript{
 
 	// Update is called once per frame
 	void Update () {
-        print(ammo);
         if (Input.GetButtonDown("Fire"))
         {
             fireButton = true;
@@ -62,7 +60,6 @@ public class ShotgunScript : WeaponScript{
                     {
                         lineRenderer.SetPosition((i * 2) + 0, transform.position);
                         lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
-                        print(hit.collider.tag);
                         if (hit.collider.tag == "mob")
                         {
 							hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Mathf.FloorToInt(Random.Range(0f, _bigGoreSounds.Length-0.01f))]);
@@ -95,7 +92,6 @@ public class ShotgunScript : WeaponScript{
 	}
     public override int getWeaponId()
     {
-        print("shotgun");
         return 1;
     }
 }

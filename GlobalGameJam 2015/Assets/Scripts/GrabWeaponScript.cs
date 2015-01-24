@@ -124,12 +124,10 @@ public class GrabWeaponScript : MonoBehaviour {
         if (col == playerOne.collider)
         {
             playerOneInTrigger = true;
-            print("P2In");
         }
         if (col == playerTwo.collider)
         {
             playerTwoInTrigger = true;
-            print("P1In");
         }
     }
     // Update is called once per frame
@@ -138,12 +136,10 @@ public class GrabWeaponScript : MonoBehaviour {
         if (col == playerOne.collider)
         {
             playerOneInTrigger = false;
-            print("P1Out");
         }
         if (col == playerTwo.collider)
         {
             playerTwoInTrigger = false;
-            print("P2Out");
         }
     }
 }
