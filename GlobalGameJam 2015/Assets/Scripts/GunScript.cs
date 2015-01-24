@@ -56,7 +56,11 @@ public class GunScript : WeaponScript{
                     if (hit.collider.tag == "mob")
                     {
 						hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length-0.01f))]);
-                        Destroy(hit.collider.gameObject);
+                        if(Random.Range(0, 10) > 9)
+						{
+							audio.Play();
+						}
+						Destroy(hit.collider.gameObject);
                         bloodScript.showNextBlood(hit.collider.transform.position);
                     }
                 }
