@@ -10,12 +10,14 @@ public class Controller : MonoBehaviour {
     private string verticalAxis;
     [SerializeField]
     private string horizontalAxis;
+	public bool lightIsOn;
     
 	// Use this for initialization
 	void Start () 
 	{
 		_FlashlightUp.SetActive(false);
 		_FlashlightDown.SetActive(false);
+		lightIsOn = false;
 	}
 	
 	// Update is called once per frame
@@ -28,14 +30,14 @@ public class Controller : MonoBehaviour {
 		{
 			_FlashlightUp.SetActive(true);
 			_FlashlightDown.SetActive(true);
+			lightIsOn = true;
 		}
 		if(Input.GetMouseButtonUp(1))
 		{
 			_FlashlightUp.SetActive(false);
 			_FlashlightDown.SetActive(false);
+			lightIsOn = false;
 		}	
-	
-	
 	}
 
 	void Move()

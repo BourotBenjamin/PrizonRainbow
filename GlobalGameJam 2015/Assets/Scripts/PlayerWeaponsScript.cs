@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayerWeaponsScript : MonoBehaviour {
 
     private WeaponScript[] scripts;
+    private WeaponScript currentWeapon;
 	
     void Start()
     {
@@ -16,7 +17,7 @@ public class PlayerWeaponsScript : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	public void SetScriptEnabled(int scriptId) 
+    public void SetScriptEnabled(int scriptId, int ammoValue) 
     {
         int i = 0;
         foreach(WeaponScript weaponScript in scripts)
@@ -25,13 +26,32 @@ public class PlayerWeaponsScript : MonoBehaviour {
             {
                 print("Script " + i + " enabled");
                 weaponScript.enabled = true;
+                weaponScript.setAmmo(ammoValue);
+                currentWeapon = weaponScript;
             }
             else
             {
                 print("Script " + i + " disaled");
                 weaponScript.enabled = false;
+                weaponScript.setAmmo(ammoValue);
             }
-            i++;
+            ++i;
         }
 	}
+
+    public int getCurrentWeapon()
+    {
+        if (currentWeapon != null)
+            return currentWeapon.getWeaponId();
+        else
+            return -1;
+    }
+    public int getCurrentAmmo()
+    {
+        if (currentWeapon != null)
+            return currentWeapon.getAmmo();
+        else
+            return -1;
+    }
+
 }

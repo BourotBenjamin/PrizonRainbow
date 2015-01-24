@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeaponScript : MonoBehaviour {
+public abstract class WeaponScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    protected int ammo = 0;
+
+    public void setAmmo(int ammo)
+    {
+        this.ammo = ammo;
+    }
+    public int getAmmo()
+    {
+        return ammo;
+    }
+
+    public abstract int getWeaponId();
 }
