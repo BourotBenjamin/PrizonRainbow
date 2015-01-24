@@ -12,7 +12,7 @@ public class GunScript : WeaponScript{
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light light;
+    private Light gunLight;
 	ManetteController _ctrl;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
@@ -48,7 +48,7 @@ public class GunScript : WeaponScript{
                 --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
-                light.enabled = true;
+                gunLight.enabled = true;
                 RaycastHit hit;
                 lineRenderer.SetVertexCount(2);
                 if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
@@ -75,7 +75,7 @@ public class GunScript : WeaponScript{
         }
         else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
         {
-            light.enabled = false;
+            gunLight.enabled = false;
             lineRenderer.enabled = false;
         }
 	}

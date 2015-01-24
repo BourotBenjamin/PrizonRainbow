@@ -293,6 +293,33 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 2a2301c93e3876a4d934a34d1ed32a34, type: 2}
   - {fileID: 2100000, guid: 743cc970a1943514794ab77ea533d9a4, type: 2}
   bloodPrefab: {fileID: 1812980367}
+--- !u!1 &188654581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 187918, guid: fcec620bb6007e747ae93a0fe6e0e5e1, type: 2}
+  m_PrefabInternal: {fileID: 27348254}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 188654582}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188654582
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 487918, guid: fcec620bb6007e747ae93a0fe6e0e5e1, type: 2}
+  m_PrefabInternal: {fileID: 27348254}
+  m_GameObject: {fileID: 188654581}
+  m_LocalRotation: {x: 0, y: 0, z: .477944314, w: .878390193}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 912186792}
+  m_RootOrder: 7
 --- !u!1 &204475615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1035,7 @@ MonoBehaviour:
   lightRadius: 4.80000019
   coneStart: 0
   coneAngle: 360
-  lightColor: {r: .242647052, g: .242647052, b: .242647052, a: 0}
+  lightColor: {r: .274509817, g: .274509817, b: .274509817, a: 0}
   lightDetail: 1008
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
@@ -1519,7 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .0299999993
-  light: {fileID: 857406135}
+  gunLight: {fileID: 0}
   playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
   playerSprite: {fileID: 1637558397}
 --- !u!114 &912186784
@@ -1536,7 +1563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .0299999993
-  light: {fileID: 857406135}
+  gunLight: {fileID: 0}
   playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
   playerSprite: {fileID: 1637558397}
 --- !u!114 &912186785
@@ -1611,7 +1638,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 27348254}
   m_GameObject: {fileID: 912186782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ee3c9a863f0879419afe99cab6eab04, type: 3}
   m_Name: 
@@ -1682,6 +1709,7 @@ Transform:
   - {fileID: 1885104933}
   - {fileID: 1637558396}
   - {fileID: 953714959}
+  - {fileID: 188654582}
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!114 &912186793
@@ -1703,16 +1731,16 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 27348254}
   m_GameObject: {fileID: 912186782}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eead11ef92ae7d4d84c34dab384fc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  _FlashlightUp: {fileID: 0}
-  _FlashlightDown: {fileID: 0}
-  _orientation: {fileID: 0}
-  _index: 0
+  _FlashlightUp: {fileID: 204475615}
+  _FlashlightDown: {fileID: 816771717}
+  _orientation: {fileID: 188654581}
+  _index: 1
   lightIsOn: 0
   firebtn: 0
 --- !u!114 &912186795
@@ -1729,7 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: .100000001
   fireLightTime: .0299999993
-  light: {fileID: 857406135}
+  gunLight: {fileID: 0}
   playerTexture: {fileID: 2800000, guid: bf1d8199299c74844bc32c48138e5a5f, type: 3}
   playerSprite: {fileID: 1637558397}
 --- !u!120 &912186796
@@ -1811,7 +1839,7 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 1.72000003
+  lightRadius: 2
   coneStart: 0
   coneAngle: 360
   lightColor: {r: .338235319, g: .338235319, b: .338235319, a: 0}
@@ -1946,7 +1974,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 732713820}
   m_GameObject: {fileID: 997230527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -1980,6 +2008,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1399648517}
   m_RootOrder: 0
+--- !u!1 &1013091089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 101452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 732713820}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1013091090}
+  - 212: {fileID: 1013091091}
+  m_Layer: 0
+  m_Name: ZombieFlic1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013091090
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 401452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 732713820}
+  m_GameObject: {fileID: 1013091089}
+  m_LocalRotation: {x: 0, y: 0, z: -.705653727, w: .70855689}
+  m_LocalPosition: {x: .119999997, y: 0, z: -1.86000001}
+  m_LocalScale: {x: .425275683, y: .445758581, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1399648517}
+  m_RootOrder: 1
+--- !u!212 &1013091091
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21201452, guid: f2a4539991dea1547a977c8233015811,
+    type: 2}
+  m_PrefabInternal: {fileID: 732713820}
+  m_GameObject: {fileID: 1013091089}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 39c1d13f82ffac442a34d94df5ff010a, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3fffb9d6a13668a42bf5e31110e82d66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1018908485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,10 +2224,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1062244519}
   - 33: {fileID: 1062244524}
-  - 65: {fileID: 1062244523}
   - 23: {fileID: 1062244522}
   - 114: {fileID: 1062244521}
   - 54: {fileID: 1062244520}
+  - 136: {fileID: 1062244523}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: mob
@@ -2167,6 +2246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1921981444}
+  - {fileID: 1102798413}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!54 &1062244520
@@ -2178,7 +2258,7 @@ Rigidbody:
   m_GameObject: {fileID: 1062244518}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: Infinity
+  m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -2209,7 +2289,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 341165648}
   m_GameObject: {fileID: 1062244518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -2223,19 +2303,20 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1062244523
-BoxCollider:
+--- !u!136 &1062244523
+CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6573642, guid: f2a4539991dea1547a977c8233015811,
+  m_PrefabParentObject: {fileID: 13601452, guid: f2a4539991dea1547a977c8233015811,
     type: 2}
   m_PrefabInternal: {fileID: 341165648}
   m_GameObject: {fileID: 1062244518}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: .340000004
+  m_Height: 1.42999995
+  m_Direction: 2
+  m_Center: {x: -.25, y: -0, z: 1.32000005}
 --- !u!33 &1062244524
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2289,7 +2370,7 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 1.72000003
+  lightRadius: 2
   coneStart: 0
   coneAngle: 360
   lightColor: {r: .338235319, g: .338235319, b: .338235319, a: 0}
@@ -2392,6 +2473,108 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1072274689}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1091780288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 101452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 297970883}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1091780289}
+  - 212: {fileID: 1091780290}
+  m_Layer: 0
+  m_Name: ZombieFlic1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1091780289
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 401452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 297970883}
+  m_GameObject: {fileID: 1091780288}
+  m_LocalRotation: {x: 0, y: 0, z: -.705653727, w: .70855689}
+  m_LocalPosition: {x: .119999997, y: 0, z: -1.86000001}
+  m_LocalScale: {x: .425275683, y: .445758581, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1719380371}
+  m_RootOrder: 1
+--- !u!212 &1091780290
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21201452, guid: f2a4539991dea1547a977c8233015811,
+    type: 2}
+  m_PrefabInternal: {fileID: 297970883}
+  m_GameObject: {fileID: 1091780288}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 39c1d13f82ffac442a34d94df5ff010a, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3fffb9d6a13668a42bf5e31110e82d66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1102798412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 101452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 341165648}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1102798413}
+  - 212: {fileID: 1102798414}
+  m_Layer: 0
+  m_Name: ZombieFlic1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102798413
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 401452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 341165648}
+  m_GameObject: {fileID: 1102798412}
+  m_LocalRotation: {x: 0, y: 0, z: -.705653727, w: .70855689}
+  m_LocalPosition: {x: .119999997, y: 0, z: -1.86000001}
+  m_LocalScale: {x: .425275683, y: .445758581, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1062244519}
+  m_RootOrder: 1
+--- !u!212 &1102798414
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21201452, guid: f2a4539991dea1547a977c8233015811,
+    type: 2}
+  m_PrefabInternal: {fileID: 341165648}
+  m_GameObject: {fileID: 1102798412}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 39c1d13f82ffac442a34d94df5ff010a, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3fffb9d6a13668a42bf5e31110e82d66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1123012492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,10 +3115,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1393456436}
   - 33: {fileID: 1393456441}
-  - 65: {fileID: 1393456440}
   - 23: {fileID: 1393456439}
   - 114: {fileID: 1393456438}
   - 54: {fileID: 1393456437}
+  - 136: {fileID: 1393456440}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: mob
@@ -2954,6 +3137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1753386610}
+  - {fileID: 1770064611}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!54 &1393456437
@@ -2965,7 +3149,7 @@ Rigidbody:
   m_GameObject: {fileID: 1393456435}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: Infinity
+  m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -2996,7 +3180,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 1213346845}
   m_GameObject: {fileID: 1393456435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -3010,19 +3194,20 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1393456440
-BoxCollider:
+--- !u!136 &1393456440
+CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6573642, guid: f2a4539991dea1547a977c8233015811,
+  m_PrefabParentObject: {fileID: 13601452, guid: f2a4539991dea1547a977c8233015811,
     type: 2}
   m_PrefabInternal: {fileID: 1213346845}
   m_GameObject: {fileID: 1393456435}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: .340000004
+  m_Height: 1.42999995
+  m_Direction: 2
+  m_Center: {x: -.25, y: -0, z: 1.32000005}
 --- !u!33 &1393456441
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3040,10 +3225,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1399648517}
   - 33: {fileID: 1399648522}
-  - 65: {fileID: 1399648521}
   - 23: {fileID: 1399648520}
   - 114: {fileID: 1399648519}
   - 54: {fileID: 1399648518}
+  - 136: {fileID: 1399648521}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: mob
@@ -3062,6 +3247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 997230530}
+  - {fileID: 1013091090}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!54 &1399648518
@@ -3073,7 +3259,7 @@ Rigidbody:
   m_GameObject: {fileID: 1399648516}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: Infinity
+  m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -3104,7 +3290,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 732713820}
   m_GameObject: {fileID: 1399648516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -3118,19 +3304,20 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1399648521
-BoxCollider:
+--- !u!136 &1399648521
+CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6573642, guid: f2a4539991dea1547a977c8233015811,
+  m_PrefabParentObject: {fileID: 13601452, guid: f2a4539991dea1547a977c8233015811,
     type: 2}
   m_PrefabInternal: {fileID: 732713820}
   m_GameObject: {fileID: 1399648516}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: .340000004
+  m_Height: 1.42999995
+  m_Direction: 2
+  m_Center: {x: -.25, y: -0, z: 1.32000005}
 --- !u!33 &1399648522
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3187,7 +3374,7 @@ MonoBehaviour:
   lightRadius: 4.80000019
   coneStart: 0
   coneAngle: 360
-  lightColor: {r: .242647052, g: .242647052, b: .242647052, a: 0}
+  lightColor: {r: .274509817, g: .274509817, b: .274509817, a: 0}
   lightDetail: 1008
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
@@ -3399,7 +3586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .0299999993
-  light: {fileID: 229211064}
+  gunLight: {fileID: 0}
   playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
   playerSprite: {fileID: 1449004139}
 --- !u!108 &1475507266
@@ -3452,7 +3639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .0299999993
-  light: {fileID: 229211064}
+  gunLight: {fileID: 0}
   playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
   playerSprite: {fileID: 1449004139}
 --- !u!54 &1475507268
@@ -3478,7 +3665,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1144582633}
   m_GameObject: {fileID: 1475507264}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ee3c9a863f0879419afe99cab6eab04, type: 3}
   m_Name: 
@@ -3549,6 +3736,7 @@ Transform:
   - {fileID: 1592209275}
   - {fileID: 1449004138}
   - {fileID: 1070953047}
+  - {fileID: 1522618769}
   m_Father: {fileID: 0}
   m_RootOrder: 14
 --- !u!114 &1475507274
@@ -3583,16 +3771,16 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1144582633}
   m_GameObject: {fileID: 1475507264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eead11ef92ae7d4d84c34dab384fc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  _FlashlightUp: {fileID: 0}
-  _FlashlightDown: {fileID: 0}
-  _orientation: {fileID: 0}
-  _index: 0
+  _FlashlightUp: {fileID: 2076262808}
+  _FlashlightDown: {fileID: 2017582060}
+  _orientation: {fileID: 1522618768}
+  _index: 1
   lightIsOn: 0
   firebtn: 0
 --- !u!114 &1475507277
@@ -3609,7 +3797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: .100000001
   fireLightTime: .0299999993
-  light: {fileID: 229211064}
+  gunLight: {fileID: 0}
   playerTexture: {fileID: 2800000, guid: bf1d8199299c74844bc32c48138e5a5f, type: 3}
   playerSprite: {fileID: 1449004139}
 --- !u!120 &1475507278
@@ -3690,6 +3878,33 @@ Prefab:
   m_RootGameObject: {fileID: 1344638838}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1522618768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 187918, guid: fcec620bb6007e747ae93a0fe6e0e5e1, type: 2}
+  m_PrefabInternal: {fileID: 1144582633}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1522618769}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1522618769
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 487918, guid: fcec620bb6007e747ae93a0fe6e0e5e1, type: 2}
+  m_PrefabInternal: {fileID: 1144582633}
+  m_GameObject: {fileID: 1522618768}
+  m_LocalRotation: {x: 0, y: 0, z: .477944314, w: .878390193}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1475507273}
+  m_RootOrder: 7
 --- !u!1 &1544664350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4061,10 +4276,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1719380371}
   - 33: {fileID: 1719380370}
-  - 65: {fileID: 1719380369}
   - 23: {fileID: 1719380368}
   - 114: {fileID: 1719380367}
   - 54: {fileID: 1719380366}
+  - 136: {fileID: 1719380369}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: mob
@@ -4081,7 +4296,7 @@ Rigidbody:
   m_GameObject: {fileID: 1719380365}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: Infinity
+  m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -4112,7 +4327,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 297970883}
   m_GameObject: {fileID: 1719380365}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -4126,19 +4341,20 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1719380369
-BoxCollider:
+--- !u!136 &1719380369
+CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6573642, guid: f2a4539991dea1547a977c8233015811,
+  m_PrefabParentObject: {fileID: 13601452, guid: f2a4539991dea1547a977c8233015811,
     type: 2}
   m_PrefabInternal: {fileID: 297970883}
   m_GameObject: {fileID: 1719380365}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: .340000004
+  m_Height: 1.42999995
+  m_Direction: 2
+  m_Center: {x: -.25, y: -0, z: 1.32000005}
 --- !u!33 &1719380370
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4158,6 +4374,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1822350936}
+  - {fileID: 1091780289}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1729360168
@@ -4327,7 +4544,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 1213346845}
   m_GameObject: {fileID: 1753386607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -4417,6 +4634,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1757407523}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1770064610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 101452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 1213346845}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1770064611}
+  - 212: {fileID: 1770064612}
+  m_Layer: 0
+  m_Name: ZombieFlic1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1770064611
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 401452, guid: f2a4539991dea1547a977c8233015811, type: 2}
+  m_PrefabInternal: {fileID: 1213346845}
+  m_GameObject: {fileID: 1770064610}
+  m_LocalRotation: {x: 0, y: 0, z: -.705653727, w: .70855689}
+  m_LocalPosition: {x: .119999997, y: 0, z: -1.86000001}
+  m_LocalScale: {x: .425275683, y: .445758581, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1393456436}
+  m_RootOrder: 1
+--- !u!212 &1770064612
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21201452, guid: f2a4539991dea1547a977c8233015811,
+    type: 2}
+  m_PrefabInternal: {fileID: 1213346845}
+  m_GameObject: {fileID: 1770064610}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 39c1d13f82ffac442a34d94df5ff010a, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3fffb9d6a13668a42bf5e31110e82d66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1812980367
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,7 +4793,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 297970883}
   m_GameObject: {fileID: 1822350935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -4627,7 +4895,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 341165648}
   m_GameObject: {fileID: 1921981441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255

@@ -2,14 +2,6 @@
 using System.Collections;
 
 public class BloodUpdateScript : MonoBehaviour {
-
-    BloodScript bloodScript; 
-
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () 
@@ -25,9 +17,4 @@ public class BloodUpdateScript : MonoBehaviour {
             this.renderer.material.color = c;
         }
 	}
-
-    public void setBloodScript(BloodScript script)
-    {
-        bloodScript = script;
-    }
 }

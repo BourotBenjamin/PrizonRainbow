@@ -18,7 +18,6 @@ public class BloodScript : MonoBehaviour {
         {
             GameObject tmpBlod = (GameObject)GameObject.Instantiate(bloodPrefab);
             tmpBlod.renderer.material = bloodMaterials[Random.Range(0, bloodMaterials.Length)];
-            tmpBlod.GetComponent<BloodUpdateScript>().setBloodScript(this);
             bloodTransforms[i] = tmpBlod;
         }
 	}
