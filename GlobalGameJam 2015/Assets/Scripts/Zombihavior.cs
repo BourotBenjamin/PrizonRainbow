@@ -26,8 +26,10 @@ public class Zombihavior : MonoBehaviour {
 		if(_target != Vector3.zero)
 		{
 			WatchPlayer(_target);
-			transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
-			transform.position += new Vector3(0,0,-transform.position.z);
+			//transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
+			//transform.position -= new Vector3(0,0,transform.position.z+0.5f);
+			_target.z = transform.position.z;
+			rigidbody.velocity = ((_target-transform.position).normalized*_speed);
 		}
 		if(Vector3.Distance(transform.position, _target) < 0.1f)
 		{

@@ -153,7 +153,7 @@ Rigidbody:
   m_GameObject: {fileID: 173640}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: Infinity
+  m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -186,9 +186,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .340000004
-  m_Height: 1.00000012
+  m_Height: 1.42999995
   m_Direction: 2
-  m_Center: {x: -.25, y: -7.62939453e-06, z: 1.13}
+  m_Center: {x: -.25, y: -0, z: 1.32000005}
 --- !u!212 &21201452
 SpriteRenderer:
   m_ObjectHideFlags: 1
