@@ -24,18 +24,18 @@ public class CameraScirpt : MonoBehaviour {
 	void Update () {
         if (!game.ended)
         {
-            if (playerTwo.gameObject.activeSelf && playerOne.gameObject.activeSelf)
+            if (playerTwo != null && playerTwo.gameObject.activeSelf && playerOne != null && playerOne.gameObject.activeSelf)
             {
                 Vector3 dist = playerTwo.position - playerOne.position;
                 cameraTransform.position = playerOne.position + (dist / 2) + Vector3.back * 4;
                 cameraTransform.camera.orthographicSize = Mathf.Max(6, dist.magnitude);
             }
-            else if (playerTwo.gameObject.activeSelf)
+            else if (playerTwo != null && playerTwo.gameObject.activeSelf)
             {
                 cameraTransform.position = playerTwo.position + Vector3.back * 4;
                 cameraTransform.camera.orthographicSize = 6;
             }
-            else if (playerOne.gameObject.activeSelf)
+            else if (playerOne != null && playerOne.gameObject.activeSelf)
             {
                 cameraTransform.position = playerOne.position + Vector3.back * 4;
                 cameraTransform.camera.orthographicSize = 6;

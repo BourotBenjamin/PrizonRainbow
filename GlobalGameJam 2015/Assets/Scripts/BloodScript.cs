@@ -12,7 +12,7 @@ public class BloodScript : MonoBehaviour {
     {
         GameObject tmpBlod = (GameObject)GameObject.Instantiate(bloodPrefab);
         tmpBlod.renderer.material = bloodMaterials[Random.Range(0, bloodMaterials.Length)];
-        tmpBlod.transform.position = pos;
+        tmpBlod.transform.position = pos + Vector3.forward;
     }
 
 
