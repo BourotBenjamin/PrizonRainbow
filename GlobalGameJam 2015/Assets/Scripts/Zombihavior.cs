@@ -101,6 +101,7 @@ public class Zombihavior : MonoBehaviour {
 			other.gameObject.audio.PlayOneShot(_playerDeath);
 			other.gameObject.SetActive(false);
 			_target = Vector3.zero;
+			Camera.main.GetComponent<CameraScirpt>().PlayDesu();
             if (!_Joueurs[0].activeSelf && !_Joueurs[1].activeSelf)
             {
                 Application.LoadLevel("gameOverScene");

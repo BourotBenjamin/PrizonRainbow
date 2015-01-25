@@ -8,7 +8,8 @@ public class CameraScirpt : MonoBehaviour {
     public BloodScript bloodScript;
 
     private Transform cameraTransform;
-
+	[SerializeField]
+	private AudioClip _deathsSound;
 	[SerializeField]
 	private AudioClip _doorSound;
     private GameStopScript game;
@@ -47,5 +48,10 @@ public class CameraScirpt : MonoBehaviour {
 	{
 		audio.PlayOneShot(_doorSound);
 	}
+	public void PlayDesu()
+	{
+		audio.PlayOneShot(_deathsSound);
+	}
+
 
 }
