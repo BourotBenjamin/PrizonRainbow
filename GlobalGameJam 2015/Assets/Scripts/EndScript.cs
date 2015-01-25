@@ -32,14 +32,8 @@ public class EndScript : MonoBehaviour {
         if(col.tag == "player")
         {
             game.ended = true;
+            Application.LoadLevel("endScene");
         }
     }
 
-    void OnGUI()
-    {
-        if(game.ended)
-        {
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 100, 100), "What do we do now ?");
-        }
-    }
 }
