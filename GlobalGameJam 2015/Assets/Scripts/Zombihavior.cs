@@ -13,7 +13,7 @@ public class Zombihavior : MonoBehaviour {
 	public AudioClip[] _ZSounds;
 	[SerializeField]
 	private AudioClip _playerDeath;
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()

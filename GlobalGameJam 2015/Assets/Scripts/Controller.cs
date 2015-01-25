@@ -14,7 +14,7 @@ public class Controller : MonoBehaviour {
 
 	float translationV;
 	float translationH;
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()

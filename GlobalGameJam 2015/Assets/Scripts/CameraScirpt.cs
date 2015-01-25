@@ -6,10 +6,9 @@ public class CameraScirpt : MonoBehaviour {
     public Transform playerOne;
     public Transform playerTwo;
     public BloodScript bloodScript;
-    public GameObject zombie;
 
     private Transform cameraTransform;
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()

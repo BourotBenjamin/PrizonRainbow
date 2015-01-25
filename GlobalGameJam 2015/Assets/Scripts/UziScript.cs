@@ -19,7 +19,7 @@ public class UziScript : WeaponScript {
     private Texture playerTexture;
     [SerializeField]
     private GameObject playerQuad;
-    public GameStopScript game;
+    private GameStopScript game;
 	[SerializeField]
 	private AudioClip _uziShot;
 	[SerializeField]

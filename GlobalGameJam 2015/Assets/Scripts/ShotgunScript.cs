@@ -26,7 +26,7 @@ public class ShotgunScript : WeaponScript{
 
     private LineRenderer lineRenderer;
 	ManetteController _ctrl;
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()

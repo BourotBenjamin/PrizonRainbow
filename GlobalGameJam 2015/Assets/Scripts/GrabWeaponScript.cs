@@ -30,7 +30,7 @@ public class GrabWeaponScript : MonoBehaviour {
 	PlayerIndex playerIndex_2;
 	GamePadState state_2;
 	GamePadState prevState_2;
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()

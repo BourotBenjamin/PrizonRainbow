@@ -25,7 +25,7 @@ public class GunScript : WeaponScript
     private AudioClip _gunShot;
     [SerializeField]
     private AudioClip[] _goreSounds;
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()
