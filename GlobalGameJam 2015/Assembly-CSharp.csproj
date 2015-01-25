@@ -71,7 +71,6 @@
      <Compile Include="Assets\Scripts\ManetteController.cs" />
      <Compile Include="Assets\Scripts\OpenDoorScript.cs" />
      <Compile Include="Assets\Scripts\PlayerWeaponsScript.cs" />
-     <Compile Include="Assets\Scripts\ShotgunAmmoScript.cs" />
      <Compile Include="Assets\Scripts\ShotgunScript.cs" />
      <Compile Include="Assets\Scripts\UziScript.cs" />
      <Compile Include="Assets\Scripts\WeaponScript.cs" />

@@ -11,10 +11,14 @@ public class UziScript : WeaponScript {
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light light;
+    private Light gunLight;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
     ManetteController _ctrl;
+    [SerializeField]
+    private Texture playerTexture;
+    [SerializeField]
+    private GameObject playerQuad;
 
 
     void Start()
@@ -41,14 +45,13 @@ public class UziScript : WeaponScript {
             {
                 --ammo;
                 fire = true;
-                light.enabled = true;
+                gunLight.enabled = true;
                 fireTime = Time.timeSinceLevelLoad;
                 RaycastHit hit;
                 Quaternion qt;
                 lineRenderer.SetVertexCount(2);
                 qt = Quaternion.AngleAxis(Random.Range(-5, 5), Vector3.forward);
-                Debug.DrawRay(transform.position, qt * transform.right, Color.green, 15);
-                if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
+                if (Physics.Raycast(transform.position + transform.forward * 0.4f, qt * transform.right, out hit, 100f))
                 {
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, hit.collider.transform.position);
@@ -74,7 +77,7 @@ public class UziScript : WeaponScript {
             }
             else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
             {
-                light.enabled = false;
+                gunLight.enabled = false;
                 lineRenderer.enabled = false;
                 lineRenderer.SetVertexCount(0);
             }
@@ -83,5 +86,11 @@ public class UziScript : WeaponScript {
     public override int getWeaponId()
     {
         return 2;
+    }
+
+    public override void setAmmo(int ammo)
+    {
+        playerQuad.renderer.material.SetTexture(0, playerTexture);
+        this.ammo = ammo;
     }
 }

@@ -5,14 +5,11 @@ public abstract class WeaponScript : MonoBehaviour {
 
     protected int ammo = 0;
 
-    public void setAmmo(int ammo)
-    {
-        this.ammo = ammo;
-    }
+    public abstract void setAmmo(int ammo);
+
+    public abstract int getWeaponId();
     public int getAmmo()
     {
         return ammo;
     }
-
-    public abstract int getWeaponId();
 }
