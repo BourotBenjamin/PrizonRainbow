@@ -6,12 +6,13 @@ public class CameraScirpt : MonoBehaviour {
     public Transform playerOne;
     public Transform playerTwo;
     public BloodScript bloodScript;
-    public GameObject zombie;
 
     private Transform cameraTransform;
-    public GameStopScript game;
+
 	[SerializeField]
 	private AudioClip _doorSound;
+    private GameStopScript game;
+
     // Use this for initialization
     void Start()
     {

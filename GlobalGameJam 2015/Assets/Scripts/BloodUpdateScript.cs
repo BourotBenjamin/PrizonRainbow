@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BloodUpdateScript : MonoBehaviour {
 
-    public GameStopScript game;
+    private GameStopScript game;
 
     // Use this for initialization
     void Start()

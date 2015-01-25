@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EndScript : MonoBehaviour {
 
-    public GameStopScript game;
+    private GameStopScript game;
     [SerializeField]
     private GameObject zombieEmpty;
     [SerializeField]
