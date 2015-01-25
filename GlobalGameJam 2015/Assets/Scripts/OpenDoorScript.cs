@@ -13,7 +13,7 @@ public class OpenDoorScript : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter (Collider col) 
     {
-        if (!keyNeeded || (col.GetComponent<KeyScript>().hasKey()))
+        if (!keyNeeded || (col.tag == "player" && col.GetComponent<KeyScript>().hasKey()))
         {
 			Camera.main.audio.PlayOneShot(_useKey);
             Destroy(this.gameObject, 0.2f);

@@ -60,7 +60,7 @@ public class Zombihavior : MonoBehaviour {
 		_viewRange = _baseViewRange;
 		foreach(GameObject go in _Joueurs)
 		{
-			if(go.activeSelf)
+            if (go != null && go.activeSelf)
 			{
 				if(go.GetComponent<Controller>().lightIsOn || go.GetComponent<ManetteController>().lightIsOn)
 				{
