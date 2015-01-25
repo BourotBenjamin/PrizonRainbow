@@ -11,6 +11,9 @@ public class Zombihavior : MonoBehaviour {
 	private Vector3 _target;
 	private float _baseViewRange;
 	public AudioClip[] _ZSounds;
+	[SerializeField]
+	private AudioClip _playerDeath;
+
 
 	// Use this for initialization
 	void Start () 
@@ -35,6 +38,11 @@ public class Zombihavior : MonoBehaviour {
 		{
 			_target = Vector3.zero;
 		}
+		if(Random.Range(0, 100)>95)
+		{
+			audio.PlayOneShot(_ZSounds[Mathf.FloorToInt(Random.Range(0f, 4.99f))]);
+		}
+
 
 	}
 
@@ -82,6 +90,7 @@ public class Zombihavior : MonoBehaviour {
 		Debug.Log("collision : " + other.gameObject.name);
 		if(other.gameObject.tag == "player")
 		{
+			other.gameObject.audio.PlayOneShot(_playerDeath);
 			other.gameObject.SetActive(false);
 			_target = Vector3.zero;
 		}

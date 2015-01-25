@@ -10,24 +10,24 @@ public class GunScript : WeaponScript{
     [SerializeField]
     private float fireMinTime = 1;
     [SerializeField]
-    private float fireLightTime = 0.03f;
+    private float fireLightTime = 0.25f;
     [SerializeField]
-    private Light gunLight;
-	ManetteController _ctrl;
+    private Light light;
+	[SerializeField]
+	private AudioClip _gunShot;
+	[SerializeField]
+	private AudioClip[] _goreSounds;
+
+
+	ManetteController _ctrl;    
     private BloodScript bloodScript;
-    private LineRenderer lineRenderer;
-    [SerializeField]
-    private Texture playerTexture;
-    [SerializeField]
-    private GameObject playerQuad;
 
 
 
 	void Start () 
 	{
-		_ctrl = GetComponent<ManetteController>();
+		_ctrl = GetComponent<ManetteController>();        
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
-        lineRenderer = this.GetComponent<LineRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -48,25 +48,22 @@ public class GunScript : WeaponScript{
                 --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
-                gunLight.enabled = true;
+				audio.PlayOneShot(_gunShot);
+                light.enabled = true;
                 RaycastHit hit;
-                lineRenderer.SetVertexCount(2);
-                if (Physics.Raycast(transform.position + transform.forward * 0.4f, transform.right, out hit, 100f))
+                if (Physics.Raycast(transform.position, transform.right, out hit, 100f))
                 {
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, hit.collider.transform.position);
                     if (hit.collider.tag == "mob")
                     {
-                        Destroy(hit.collider.gameObject);
+						hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length-0.01f))]);
+                        if(Random.Range(0, 10) > 9)
+						{
+							audio.Play();
+						}
+						Destroy(hit.collider.gameObject);
                         bloodScript.showNextBlood(hit.collider.transform.position);
                     }
                 }
-                else
-                {
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, transform.position + (transform.right * 10));
-                }
-                lineRenderer.enabled = true;
             }
         }
         else if(Time.timeSinceLevelLoad - fireTime > fireMinTime )
@@ -75,17 +72,11 @@ public class GunScript : WeaponScript{
         }
         else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
         {
-            gunLight.enabled = false;
-            lineRenderer.enabled = false;
+            light.enabled = false;
         }
 	}
     public override int getWeaponId()
     {
         return 0;
-    }
-    public override void setAmmo(int ammo)
-    {
-        playerQuad.renderer.material.SetTexture(0, playerTexture);
-        this.ammo = ammo;
     }
 }
