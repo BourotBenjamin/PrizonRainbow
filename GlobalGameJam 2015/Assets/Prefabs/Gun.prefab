@@ -10,8 +10,6 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 135: {fileID: 13500000}
-  - 23: {fileID: 2300000}
-  - 33: {fileID: 3300000}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -27,7 +25,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456664}
-  - 212: {fileID: 21256664}
+  - 33: {fileID: 3300002}
+  - 23: {fileID: 2300002}
   m_Layer: 0
   m_Name: 9mmOmbre
   m_TagString: Untagged
@@ -42,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -.0657693148, y: .0657693073, z: -.704041481, w: .704041481}
-  m_LocalPosition: {x: 89.3764648, y: -108.687233, z: -.49000001}
+  m_LocalPosition: {x: -7.63999987, y: -0, z: -.49000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456664}
@@ -56,23 +55,23 @@ Transform:
   m_GameObject: {fileID: 156664}
   m_LocalRotation: {x: .0657693148, y: -.0657693073, z: .704041481, w: .704041481}
   m_LocalPosition: {x: -.0762329027, y: -.0509228557, z: .489029616}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
---- !u!23 &2300000
+--- !u!23 &2300002
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_GameObject: {fileID: 156664}
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ae9b74951eb21fa43a329b383a75af20, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -80,13 +79,13 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3300000
+--- !u!33 &3300002
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_GameObject: {fileID: 156664}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idWeapon: 0
-  ammoValue: 0
+  ammoValue: 15
+  weaponTextures:
+  - {fileID: 2800000, guid: 7c6128d66d09e7548a17da4774da8895, type: 3}
+  - {fileID: 2800000, guid: 510a1b607a10ef247b163c02fa00276e, type: 3}
+  - {fileID: 2800000, guid: 6b9249df122608f46a2f7751f35dae3f, type: 3}
+  quad: {fileID: 156664}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -112,28 +116,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!212 &21256664
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156664}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: ae9b74951eb21fa43a329b383a75af20, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5da8e82fbbbed464191898fc59cd3e61, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

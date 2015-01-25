@@ -33,7 +33,7 @@ public class BloodScript : MonoBehaviour {
             lastBlood = 0;
         }
         Color c = bloodTransforms[lastBlood].renderer.material.color;
-        bloodTransforms[lastBlood].transform.position = pos;
+        bloodTransforms[lastBlood].transform.position = pos + transform.forward;
         c.a = 1;
         bloodTransforms[lastBlood].renderer.material.color = c;
     }

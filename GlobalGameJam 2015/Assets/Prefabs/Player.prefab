@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400010}
-  - 114: {fileID: 11400010}
   - 64: {fileID: 6400000}
   m_Layer: 1
   m_Name: ShotgunCollider
@@ -670,18 +669,6 @@ MonoBehaviour:
   pivotPoint: {x: 0, y: 0, z: 0}
   pivotPointType: 0
   ignoreOptimizations: 0
---- !u!114 &11400010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118dc04eb21d2eb4195ab8f12ebff75d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1

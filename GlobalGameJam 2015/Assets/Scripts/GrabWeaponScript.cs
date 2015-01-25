@@ -17,7 +17,11 @@ public class GrabWeaponScript : MonoBehaviour {
     private bool playerOneInTrigger;
     private bool playerTwoInTrigger;
 	int _index = 0;
-	int _index_2 = 1;
+    int _index_2 = 1;
+    [SerializeField]
+    private Texture[] weaponTextures;
+    [SerializeField]
+    private GameObject quad;
 
 	PlayerIndex playerIndex;
 	GamePadState state;
@@ -76,6 +80,7 @@ public class GrabWeaponScript : MonoBehaviour {
                     {
                         this.idWeapon = weapon;
                         this.ammoValue = ammo;
+                        quad.renderer.material.SetTexture(0, weaponTextures[idWeapon]);
                     }
                     else
                     {
