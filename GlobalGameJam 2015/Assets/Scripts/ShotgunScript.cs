@@ -12,12 +12,16 @@ public class ShotgunScript : WeaponScript{
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light light;
+    private Light gunLight;
     private BloodScript bloodScript;
 	[SerializeField]
 	private AudioClip _shotgunShot;
 	[SerializeField]
-	private AudioClip[] _bigGoreSounds;
+    private AudioClip[] _bigGoreSounds;
+    [SerializeField]
+    private Texture playerTexture;
+    [SerializeField]
+    private GameObject playerQuad;
 
 
     private LineRenderer lineRenderer;
@@ -47,7 +51,7 @@ public class ShotgunScript : WeaponScript{
             {
                 --ammo;
                 fire = true;
-                light.enabled = true;
+                gunLight.enabled = true;
 				audio.PlayOneShot(_shotgunShot);
                 fireTime = Time.timeSinceLevelLoad;
                 RaycastHit hit;
@@ -84,7 +88,7 @@ public class ShotgunScript : WeaponScript{
             }
             else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
             {
-                light.enabled = false;
+                gunLight.enabled = false;
                 lineRenderer.enabled = false;
                 lineRenderer.SetVertexCount(0);
             }
@@ -93,5 +97,10 @@ public class ShotgunScript : WeaponScript{
     public override int getWeaponId()
     {
         return 1;
+    }
+    public override void setAmmo(int ammo)
+    {
+        playerQuad.renderer.material.SetTexture(0, playerTexture);
+        this.ammo = ammo;
     }
 }

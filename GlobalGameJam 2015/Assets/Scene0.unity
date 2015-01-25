@@ -639,6 +639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyNeeded: 1
+  _useKey: {fileID: 0}
+  _metalDoor: {fileID: 0}
 --- !u!135 &276064805
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -902,6 +904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idWeapon: 2
   ammoValue: 100
+  _gunFound: {fileID: 0}
   weaponTextures:
   - {fileID: 2800000, guid: 7c6128d66d09e7548a17da4774da8895, type: 3}
   - {fileID: 2800000, guid: 510a1b607a10ef247b163c02fa00276e, type: 3}
@@ -1499,7 +1502,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .0299999993
-  gunLight: {fileID: 857406135}
+  gunLight: {fileID: 0}
+  _shotgunShot: {fileID: 0}
+  _bigGoreSounds: []
   playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
   playerQuad: {fileID: 1637558395}
 --- !u!114 &912186784
@@ -1519,6 +1524,8 @@ MonoBehaviour:
   gunLight: {fileID: 857406135}
   playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
   playerQuad: {fileID: 1637558395}
+  _gunShot: {fileID: 0}
+  _goreSounds: []
 --- !u!114 &912186785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,6 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b54aac3ec4de34c9df6b844e271fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _getKey: {fileID: 0}
 --- !u!114 &912186794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2048,6 +2056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyNeeded: 0
+  _useKey: {fileID: 0}
+  _metalDoor: {fileID: 0}
 --- !u!1 &1044737845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,6 +2239,7 @@ MonoBehaviour:
   _viewAngle: 35
   _speed: 3
   _ZSounds: []
+  _playerDeath: {fileID: 0}
 --- !u!23 &1062244522
 Renderer:
   m_ObjectHideFlags: 0
@@ -2236,7 +2247,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 341165648}
   m_GameObject: {fileID: 1062244518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -3129,6 +3140,7 @@ MonoBehaviour:
   _viewAngle: 35
   _speed: 3
   _ZSounds: []
+  _playerDeath: {fileID: 0}
 --- !u!23 &1393456439
 Renderer:
   m_ObjectHideFlags: 0
@@ -3136,7 +3148,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 1213346845}
   m_GameObject: {fileID: 1393456435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -3239,6 +3251,7 @@ MonoBehaviour:
   _viewAngle: 35
   _speed: 3
   _ZSounds: []
+  _playerDeath: {fileID: 0}
 --- !u!23 &1399648520
 Renderer:
   m_ObjectHideFlags: 0
@@ -3246,7 +3259,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 732713820}
   m_GameObject: {fileID: 1399648516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -3549,7 +3562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireMinTime: 1
   fireLightTime: .0299999993
-  gunLight: {fileID: 229211064}
+  gunLight: {fileID: 0}
+  _shotgunShot: {fileID: 0}
+  _bigGoreSounds: []
   playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
   playerQuad: {fileID: 1449004137}
 --- !u!108 &1475507266
@@ -3605,6 +3620,8 @@ MonoBehaviour:
   gunLight: {fileID: 229211064}
   playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
   playerQuad: {fileID: 1449004137}
+  _gunShot: {fileID: 0}
+  _goreSounds: []
 --- !u!54 &1475507268
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3727,6 +3744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b54aac3ec4de34c9df6b844e271fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _getKey: {fileID: 0}
 --- !u!114 &1475507276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4180,6 +4198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idWeapon: 0
   ammoValue: 15
+  _gunFound: {fileID: 0}
   weaponTextures:
   - {fileID: 2800000, guid: 7c6128d66d09e7548a17da4774da8895, type: 3}
   - {fileID: 2800000, guid: 510a1b607a10ef247b163c02fa00276e, type: 3}
@@ -4251,6 +4270,7 @@ MonoBehaviour:
   _viewAngle: 35
   _speed: 3
   _ZSounds: []
+  _playerDeath: {fileID: 0}
 --- !u!23 &1719380368
 Renderer:
   m_ObjectHideFlags: 0
@@ -4258,7 +4278,7 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 297970883}
   m_GameObject: {fileID: 1719380365}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -4352,6 +4372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idWeapon: 1
   ammoValue: 15
+  _gunFound: {fileID: 0}
   weaponTextures:
   - {fileID: 2800000, guid: 7c6128d66d09e7548a17da4774da8895, type: 3}
   - {fileID: 2800000, guid: 510a1b607a10ef247b163c02fa00276e, type: 3}
