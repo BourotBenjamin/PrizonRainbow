@@ -67,14 +67,12 @@ public class UziScript : WeaponScript {
                         {
                             bloodScript.showNextBlood(hit.collider.transform.position);
                             Destroy(hit.collider.gameObject);
+						    Camera.main.audio.PlayOneShot(_goreSounds[Random.Range(0, _goreSounds.Length)]);
+						    if (Random.Range(0, 10) >= 9)
+						    {
+							    audio.Play();
+                            }
                         }
-                        bloodScript.showNextBlood(hit.collider.transform.position);
-                        Destroy(hit.collider.gameObject);
-						Camera.main.audio.PlayOneShot(_goreSounds[Random.Range(0, _goreSounds.Length)]);
-						if (Random.Range(0, 10) >= 9)
-						{
-							audio.Play();
-						}
                     }
                     else
                     {
