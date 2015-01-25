@@ -22,7 +22,7 @@ public class EndScript : MonoBehaviour {
         {
             for (int j = 0; j < sizeY; j++)
             {
-                GameObject.Instantiate(zombieEmpty, new Vector3(x+i, x+j, 0), Quaternion.identity);
+                GameObject.Instantiate(zombieEmpty, new Vector3(x+i, y+j, 0), Quaternion.identity);
             }
         }
 	}
