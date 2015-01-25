@@ -69,7 +69,7 @@ public class UziScript : WeaponScript {
                             Destroy(hit.collider.gameObject);
                         }
 						Camera.main.audio.PlayOneShot(_goreSounds[Random.Range(0, _goreSounds.Length)]);
-						if (Random.Range(0, 10) > 9)
+						if (Random.Range(0, 10) >= 9)
 						{
 							audio.Play();
 						}

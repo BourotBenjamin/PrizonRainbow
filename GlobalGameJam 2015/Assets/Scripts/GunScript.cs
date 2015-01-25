@@ -74,7 +74,7 @@ public class GunScript : WeaponScript
                             Destroy(hit.collider.gameObject);
                             bloodScript.showNextBlood(hit.collider.transform.position);
                             Camera.main.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0, 3))]);
-                            if (Random.Range(0, 10) > 9)
+                            if (Random.Range(0, 10) >= 9)
                             {
                                 audio.Play();
                             }

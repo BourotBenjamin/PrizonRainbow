@@ -64,7 +64,7 @@ public class ShotgunScript : WeaponScript{
                     for (int i = 0; i < 10; ++i )
                     {
                         qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
-					    if (Physics.Raycast(transform.position+ transform.forward * 0.4f, qt * transform.right, out hit, 100f))
+					    if (Physics.Raycast(transform.position+ transform.forward * 0.4f, qt * transform.right, out hit, 7f))
                         {
                             lineRenderer.SetPosition((i * 2) + 0, transform.position);
                             lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
@@ -73,7 +73,7 @@ public class ShotgunScript : WeaponScript{
                                 hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Random.Range(0, _bigGoreSounds.Length - 1)]);
                                 bloodScript.showNextBlood(hit.collider.transform.position);
                                 Camera.main.audio.PlayOneShot(_bigGoreSounds[Random.Range(0, _bigGoreSounds.Length)]);
-                                if (Random.Range(0, 10) > 9)
+                                if (Random.Range(0, 10) >= 9)
                                 {
                                     audio.Play();
                                 }
@@ -84,7 +84,7 @@ public class ShotgunScript : WeaponScript{
                         else
                         {
                             lineRenderer.SetPosition((i * 2) + 0, transform.position);
-                            lineRenderer.SetPosition((i * 2) + 1, transform.position + (qt * transform.right * 10));
+                            lineRenderer.SetPosition((i * 2) + 1, transform.position + (qt * transform.right * 7));
                         }
                     }
                     lineRenderer.enabled = true;
