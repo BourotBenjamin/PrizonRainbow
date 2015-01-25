@@ -10,13 +10,17 @@ public class EndScript : MonoBehaviour {
     private float x;
     [SerializeField]
     private float y;
+    [SerializeField]
+    private float sizeX;
+    [SerializeField]
+    private float sizeY;
 
 	// Use this for initialization
 	void Start () {
         game = Camera.main.GetComponent<GameStopScript>();
-        for(int i = 0; i< 30; i++)
+        for (int i = 0; i < sizeX; i++)
         {
-            for (int j = 0; j < 30; j++)
+            for (int j = 0; j < sizeY; j++)
             {
                 GameObject.Instantiate(zombieEmpty, new Vector3(i, j, 0), Quaternion.identity);
             }
