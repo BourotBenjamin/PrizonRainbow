@@ -11,7 +11,7 @@ public class UziScript : WeaponScript {
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light gunLight;
+    private GameObject gunLight;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
     ManetteController _ctrl;
@@ -49,7 +49,7 @@ public class UziScript : WeaponScript {
             {
                 --ammo;
                 fire = true;
-                gunLight.enabled = true;
+                gunLight.SetActive( true);
                 fireTime = Time.timeSinceLevelLoad;
 				audio.PlayOneShot(_uziShot);
                 RaycastHit hit;
@@ -87,7 +87,7 @@ public class UziScript : WeaponScript {
             }
             else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
             {
-                gunLight.enabled = false;
+                gunLight.SetActive( false);
                 lineRenderer.enabled = false;
                 lineRenderer.SetVertexCount(0);
             }

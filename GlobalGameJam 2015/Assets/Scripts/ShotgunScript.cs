@@ -12,7 +12,7 @@ public class ShotgunScript : WeaponScript{
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light gunLight;
+    private GameObject gunLight;
     private BloodScript bloodScript;
 	[SerializeField]
 	private AudioClip _shotgunShot;
@@ -51,7 +51,7 @@ public class ShotgunScript : WeaponScript{
             {
                 --ammo;
                 fire = true;
-                gunLight.enabled = true;
+                gunLight.SetActive( true);
 				audio.PlayOneShot(_shotgunShot);
                 fireTime = Time.timeSinceLevelLoad;
                 RaycastHit hit;
@@ -93,7 +93,7 @@ public class ShotgunScript : WeaponScript{
             }
             else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
             {
-                gunLight.enabled = false;
+                gunLight.SetActive( false);
                 lineRenderer.enabled = false;
                 lineRenderer.SetVertexCount(0);
             }
