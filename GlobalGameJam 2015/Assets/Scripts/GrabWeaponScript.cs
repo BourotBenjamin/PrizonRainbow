@@ -30,9 +30,12 @@ public class GrabWeaponScript : MonoBehaviour {
 	PlayerIndex playerIndex_2;
 	GamePadState state_2;
 	GamePadState prevState_2;
+    public GameStopScript game;
 
+    // Use this for initialization
     void Start()
     {
+        game = Camera.main.GetComponent<GameStopScript>();
         playerOne = Camera.main.GetComponent<CameraScirpt>().playerOne;
         playerTwo = Camera.main.GetComponent<CameraScirpt>().playerTwo;
         playerOneWeaponScript = playerOne.GetComponent<PlayerWeaponsScript>();
@@ -42,109 +45,112 @@ public class GrabWeaponScript : MonoBehaviour {
 	// Use this for initialization
 	void Update ()
     {
-		PlayerIndex testPlayerIndex = (PlayerIndex)_index;
-		GamePadState testState = GamePad.GetState(testPlayerIndex);
-		if (testState.IsConnected)
-		{
-			playerIndex = testPlayerIndex;
-		}
-		
-		
-		prevState = state;
-		state = GamePad.GetState(playerIndex);
-
-		PlayerIndex testPlayerIndex_2 = (PlayerIndex)_index_2;
-		GamePadState testState_2 = GamePad.GetState(testPlayerIndex_2);
-		if (testState_2.IsConnected)
-		{
-			playerIndex_2 = testPlayerIndex_2;
-		}
-		
-		
-		prevState_2 = state_2;
-		state_2 = GamePad.GetState(playerIndex_2);
-
-
-        if (playerOneInTrigger)
+        if (!game.ended)
         {
-            int nextWeapon = idWeapon;
-            int nextAmmo = ammoValue;
-			if (Input.GetButtonDown("P1_grabAmmo") || (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released))
+            PlayerIndex testPlayerIndex = (PlayerIndex)_index;
+            GamePadState testState = GamePad.GetState(testPlayerIndex);
+            if (testState.IsConnected)
             {
-				playerOne.audio.PlayOneShot(_gunFound);
-                int weapon = playerOneWeaponScript.getCurrentWeapon();
-                if(weapon != -1)
-                {
-                    int ammo = playerOneWeaponScript.getCurrentAmmo();
-                    if(ammo > 0)
-                    {
-                        this.idWeapon = weapon;
-                        this.ammoValue = ammo;
-                        quad.renderer.material.SetTexture(0, weaponTextures[idWeapon]);
-                    }
-                    else
-                    {
-                        Destroy(this.gameObject);
-                    }
-                }
-                else
-                {
-                    Destroy(this.gameObject);
-                }
-                playerOneWeaponScript.SetScriptEnabled(nextWeapon, nextAmmo);
+                playerIndex = testPlayerIndex;
             }
-        }
-        if (playerTwoInTrigger)
-        {
-            int nextWeapon = idWeapon;
-            int nextAmmo = ammoValue;
-			if (Input.GetButtonDown("P2_grabAmmo") || (state_2.Buttons.A == ButtonState.Pressed && prevState_2.Buttons.A == ButtonState.Released  ))
+
+
+            prevState = state;
+            state = GamePad.GetState(playerIndex);
+
+            PlayerIndex testPlayerIndex_2 = (PlayerIndex)_index_2;
+            GamePadState testState_2 = GamePad.GetState(testPlayerIndex_2);
+            if (testState_2.IsConnected)
             {
-				playerTwo.audio.PlayOneShot(_gunFound);
-                int weapon = playerTwoWeaponScript.getCurrentWeapon();
-                if (weapon != -1)
+                playerIndex_2 = testPlayerIndex_2;
+            }
+
+
+            prevState_2 = state_2;
+            state_2 = GamePad.GetState(playerIndex_2);
+
+
+            if (playerOneInTrigger)
+            {
+                int nextWeapon = idWeapon;
+                int nextAmmo = ammoValue;
+                if (Input.GetButtonDown("P1_grabAmmo") || (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released))
                 {
-                    int ammo = playerTwoWeaponScript.getCurrentAmmo();
-                    if (ammo > 0)
+                    playerOne.audio.PlayOneShot(_gunFound);
+                    int weapon = playerOneWeaponScript.getCurrentWeapon();
+                    if (weapon != -1)
                     {
-                        this.idWeapon = weapon;
-                        this.ammoValue = ammo;
+                        int ammo = playerOneWeaponScript.getCurrentAmmo();
+                        if (ammo > 0)
+                        {
+                            this.idWeapon = weapon;
+                            this.ammoValue = ammo;
+                            quad.renderer.material.SetTexture(0, weaponTextures[idWeapon]);
+                        }
+                        else
+                        {
+                            Destroy(this.gameObject);
+                        }
                     }
                     else
                     {
                         Destroy(this.gameObject);
                     }
+                    playerOneWeaponScript.SetScriptEnabled(nextWeapon, nextAmmo);
                 }
-                else
+            }
+            if (playerTwoInTrigger)
+            {
+                int nextWeapon = idWeapon;
+                int nextAmmo = ammoValue;
+                if (Input.GetButtonDown("P2_grabAmmo") || (state_2.Buttons.A == ButtonState.Pressed && prevState_2.Buttons.A == ButtonState.Released))
                 {
-                    Destroy(this.gameObject);
+                    playerTwo.audio.PlayOneShot(_gunFound);
+                    int weapon = playerTwoWeaponScript.getCurrentWeapon();
+                    if (weapon != -1)
+                    {
+                        int ammo = playerTwoWeaponScript.getCurrentAmmo();
+                        if (ammo > 0)
+                        {
+                            this.idWeapon = weapon;
+                            this.ammoValue = ammo;
+                        }
+                        else
+                        {
+                            Destroy(this.gameObject);
+                        }
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
+                    playerTwoWeaponScript.SetScriptEnabled(nextWeapon, nextAmmo);
                 }
-                playerTwoWeaponScript.SetScriptEnabled(nextWeapon, nextAmmo);
             }
         }
 	}
 
     void OnTriggerEnter(Collider col)
     {
-        if (col == playerOne.collider)
-        {
-            playerOneInTrigger = true;
-        }
-        if (col == playerTwo.collider)
-        {
-            playerTwoInTrigger = true;
-        }
+            if (col == playerOne.collider)
+            {
+                playerOneInTrigger = true;
+            }
+            if (col == playerTwo.collider)
+            {
+                playerTwoInTrigger = true;
+            }
     }
     // Update is called once per frame
     void OnTriggerExit(Collider col)
     {
-        if (col == playerOne.collider)
-        {
-            playerOneInTrigger = false;
-        }
-        if (col == playerTwo.collider)
-        {
-            playerTwoInTrigger = false;
-        }
+            if (col == playerOne.collider)
+            {
+                playerOneInTrigger = false;
+            }
+            if (col == playerTwo.collider)
+            {
+                playerTwoInTrigger = false;
+            }
     }
 }

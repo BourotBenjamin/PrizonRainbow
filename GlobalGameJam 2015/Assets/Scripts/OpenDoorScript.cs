@@ -10,10 +10,6 @@ public class OpenDoorScript : MonoBehaviour {
 	[SerializeField]
 	private AudioClip _metalDoor; 
 
-    void Start()
-    {
-    }
-
 	// Use this for initialization
 	void OnTriggerEnter (Collider col) 
     {

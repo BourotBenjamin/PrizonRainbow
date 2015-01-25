@@ -13,11 +13,12 @@ public class Zombihavior : MonoBehaviour {
 	public AudioClip[] _ZSounds;
 	[SerializeField]
 	private AudioClip _playerDeath;
+    public GameStopScript game;
 
-
-	// Use this for initialization
-	void Start () 
-	{
+    // Use this for initialization
+    void Start()
+    {
+        game = Camera.main.GetComponent<GameStopScript>();
 		_baseViewRange = _viewRange;
 		_Joueurs = GameObject.FindGameObjectsWithTag("player");
 	}
@@ -25,25 +26,26 @@ public class Zombihavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		_target = SearchPlayer();
-		if(_target != Vector3.zero)
-		{
-			WatchPlayer(_target);
-			//transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
-			//transform.position -= new Vector3(0,0,transform.position.z+0.5f);
-			_target.z = transform.position.z;
-			rigidbody.velocity = ((_target-transform.position).normalized*_speed);
-		}
-		if(Vector3.Distance(transform.position, _target) < 0.1f)
-		{
-			_target = Vector3.zero;
-		}
-		if(Random.Range(0, 100)>95)
-		{
-			audio.PlayOneShot(_ZSounds[Mathf.FloorToInt(Random.Range(0f, 4.99f))]);
-		}
-
-
+        if (!game.ended)
+        {
+            _target = SearchPlayer();
+            if (_target != Vector3.zero)
+            {
+                WatchPlayer(_target);
+                //transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
+                //transform.position -= new Vector3(0,0,transform.position.z+0.5f);
+                _target.z = transform.position.z;
+                rigidbody.velocity = ((_target - transform.position).normalized * _speed);
+            }
+            if (Vector3.Distance(transform.position, _target) < 0.1f)
+            {
+                _target = Vector3.zero;
+            }
+            if (Random.Range(0, 100) > 95)
+            {
+                audio.PlayOneShot(_ZSounds[Mathf.FloorToInt(Random.Range(0f, 4.99f))]);
+            }
+        }
 	}
 
 	Vector3 SearchPlayer()
@@ -87,7 +89,6 @@ public class Zombihavior : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
-		Debug.Log("collision : " + other.gameObject.name);
 		if(other.gameObject.tag == "player")
 		{
 			other.gameObject.audio.PlayOneShot(_playerDeath);

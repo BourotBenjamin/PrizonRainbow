@@ -15,10 +15,12 @@ public class ManetteController : MonoBehaviour {
 	PlayerIndex playerIndex;
 	GamePadState state;
 	GamePadState prevState;
-	
-	// Use this for initialization
-	void Start () 
-	{
+    public GameStopScript game;
+
+    // Use this for initialization
+    void Start()
+    {
+        game = Camera.main.GetComponent<GameStopScript>();
 		_FlashlightUp.SetActive(false);
 		_FlashlightDown.SetActive(false);
 		lightIsOn = false;
@@ -28,61 +30,64 @@ public class ManetteController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		PlayerIndex testPlayerIndex = (PlayerIndex)_index;
-		GamePadState testState = GamePad.GetState(testPlayerIndex);
-		if (testState.IsConnected)
-		{
-			//Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
-			playerIndex = testPlayerIndex;
-		}
+        if (!game.ended)
+        {
+            PlayerIndex testPlayerIndex = (PlayerIndex)_index;
+            GamePadState testState = GamePad.GetState(testPlayerIndex);
+            if (testState.IsConnected)
+            {
+                //Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+                playerIndex = testPlayerIndex;
+            }
 
 
-		prevState = state;
-		state = GamePad.GetState(playerIndex);
-		
-		// Detect if a button was pressed this frame
-		if (state.Buttons.RightShoulder == ButtonState.Pressed)
-		{
-			//Shoot
-		}
-		// Detect if a button was released this frame
-		if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
-		{
-			if(!lightIsOn)
-			{
-				_FlashlightUp.SetActive(true);
-				_FlashlightDown.SetActive(true);
-				lightIsOn = true;
-			}
-			else
-			{
-				_FlashlightUp.SetActive(false);
-				_FlashlightDown.SetActive(false);
-				lightIsOn = false;
-			}
-		}
-		/*if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
-		{
-			_FlashlightUp.SetActive(false);
-			_FlashlightDown.SetActive(false);
-			lightIsOn = false;
-		}*/
-		if (state.Buttons.RightShoulder == ButtonState.Pressed && prevState.Buttons.RightShoulder == ButtonState.Released)
-		{
-			firebtn = true;
-		}
-		if (state.Buttons.RightShoulder == ButtonState.Released && prevState.Buttons.RightShoulder == ButtonState.Pressed )
-		{
-			firebtn = false;
-		}
+            prevState = state;
+            state = GamePad.GetState(playerIndex);
+
+            // Detect if a button was pressed this frame
+            if (state.Buttons.RightShoulder == ButtonState.Pressed)
+            {
+                //Shoot
+            }
+            // Detect if a button was released this frame
+            if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
+            {
+                if (!lightIsOn)
+                {
+                    _FlashlightUp.SetActive(true);
+                    _FlashlightDown.SetActive(true);
+                    lightIsOn = true;
+                }
+                else
+                {
+                    _FlashlightUp.SetActive(false);
+                    _FlashlightDown.SetActive(false);
+                    lightIsOn = false;
+                }
+            }
+            /*if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed )
+            {
+                _FlashlightUp.SetActive(false);
+                _FlashlightDown.SetActive(false);
+                lightIsOn = false;
+            }*/
+            if (state.Buttons.RightShoulder == ButtonState.Pressed && prevState.Buttons.RightShoulder == ButtonState.Released)
+            {
+                firebtn = true;
+            }
+            if (state.Buttons.RightShoulder == ButtonState.Released && prevState.Buttons.RightShoulder == ButtonState.Pressed)
+            {
+                firebtn = false;
+            }
 
 
-		// Set vibration according to triggers
-		GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
-		
-		// Make the current object turn	
-		Move();
-		Watch ();
+            // Set vibration according to triggers
+            GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
+
+            // Make the current object turn	
+            Move();
+            Watch();
+        }
 
 	}
 		

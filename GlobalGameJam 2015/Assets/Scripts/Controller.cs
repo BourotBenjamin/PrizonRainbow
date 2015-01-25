@@ -14,10 +14,12 @@ public class Controller : MonoBehaviour {
 
 	float translationV;
 	float translationH;
-    
-	// Use this for initialization
-	void Start () 
-	{
+    public GameStopScript game;
+
+    // Use this for initialization
+    void Start()
+    {
+        game = Camera.main.GetComponent<GameStopScript>();
 		_FlashlightUp.SetActive(false);
 		_FlashlightDown.SetActive(false);
 		lightIsOn = false;
@@ -26,21 +28,24 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Move();
-		Watch ();
-	
-		if(Input.GetMouseButtonDown(1))
-		{
-			_FlashlightUp.SetActive(true);
-			_FlashlightDown.SetActive(true);
-			lightIsOn = true;
-		}
-		if(Input.GetMouseButtonUp(1))
-		{
-			_FlashlightUp.SetActive(false);
-			_FlashlightDown.SetActive(false);
-			lightIsOn = false;
-		}	
+        if (!game.ended)
+        {
+            Move();
+            Watch();
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _FlashlightUp.SetActive(true);
+                _FlashlightDown.SetActive(true);
+                lightIsOn = true;
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                _FlashlightUp.SetActive(false);
+                _FlashlightDown.SetActive(false);
+                lightIsOn = false;
+            }
+        }
 	}
 	void Move()
 	{

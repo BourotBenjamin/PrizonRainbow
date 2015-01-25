@@ -19,10 +19,12 @@ public class UziScript : WeaponScript {
     private Texture playerTexture;
     [SerializeField]
     private GameObject playerQuad;
+    public GameStopScript game;
 
-
+    // Use this for initialization
     void Start()
     {
+        game = Camera.main.GetComponent<GameStopScript>();
         _ctrl = GetComponent<ManetteController>();
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
         lineRenderer = this.GetComponent<LineRenderer>();
@@ -31,55 +33,58 @@ public class UziScript : WeaponScript {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire"))
+        if (!game.ended)
         {
-            fireButton = true;
-        }
-        if (Input.GetButtonUp("Fire"))
-        {
-            fireButton = false;
-        }
-        if (!fire)
-        {
-            if (ammo > 0 && (fireButton || _ctrl.firebtn))
+            if (Input.GetButtonDown("Fire"))
             {
-                --ammo;
-                fire = true;
-                gunLight.enabled = true;
-                fireTime = Time.timeSinceLevelLoad;
-                RaycastHit hit;
-                Quaternion qt;
-                lineRenderer.SetVertexCount(2);
-                qt = Quaternion.AngleAxis(Random.Range(-5, 5), Vector3.forward);
-                if (Physics.Raycast(transform.position + transform.forward * 0.4f, qt * transform.right, out hit, 100f))
+                fireButton = true;
+            }
+            if (Input.GetButtonUp("Fire"))
+            {
+                fireButton = false;
+            }
+            if (!fire)
+            {
+                if (ammo > 0 && (fireButton || _ctrl.firebtn))
                 {
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, hit.collider.transform.position);
-                    if (hit.collider.tag == "mob")
+                    --ammo;
+                    fire = true;
+                    gunLight.enabled = true;
+                    fireTime = Time.timeSinceLevelLoad;
+                    RaycastHit hit;
+                    Quaternion qt;
+                    lineRenderer.SetVertexCount(2);
+                    qt = Quaternion.AngleAxis(Random.Range(-5, 5), Vector3.forward);
+                    if (Physics.Raycast(transform.position + transform.forward * 0.4f, qt * transform.right, out hit, 100f))
                     {
-                        bloodScript.showNextBlood(hit.collider.transform.position);
-                        Destroy(hit.collider.gameObject);
+                        lineRenderer.SetPosition(0, transform.position);
+                        lineRenderer.SetPosition(1, hit.collider.transform.position);
+                        if (hit.collider.tag == "mob")
+                        {
+                            bloodScript.showNextBlood(hit.collider.transform.position);
+                            Destroy(hit.collider.gameObject);
+                        }
                     }
+                    else
+                    {
+                        lineRenderer.SetPosition(0, transform.position);
+                        lineRenderer.SetPosition(1, transform.position + (qt * transform.right * 10));
+                    }
+                    lineRenderer.enabled = true;
                 }
-                else
+            }
+            else
+            {
+                if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
                 {
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, transform.position + (qt * transform.right * 10));
+                    fire = false;
                 }
-                lineRenderer.enabled = true;
-            }
-        }
-        else
-        {
-            if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
-            {
-                fire = false;
-            }
-            else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
-            {
-                gunLight.enabled = false;
-                lineRenderer.enabled = false;
-                lineRenderer.SetVertexCount(0);
+                else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
+                {
+                    gunLight.enabled = false;
+                    lineRenderer.enabled = false;
+                    lineRenderer.SetVertexCount(0);
+                }
             }
         }
     }

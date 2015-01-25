@@ -25,11 +25,12 @@ public class GunScript : WeaponScript
     private AudioClip _gunShot;
     [SerializeField]
     private AudioClip[] _goreSounds;
+    public GameStopScript game;
 
-
-
+    // Use this for initialization
     void Start()
     {
+        game = Camera.main.GetComponent<GameStopScript>();
         _ctrl = GetComponent<ManetteController>();
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
         lineRenderer = this.GetComponent<LineRenderer>();
@@ -38,55 +39,58 @@ public class GunScript : WeaponScript
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire"))
+        if (!game.ended)
         {
-            fireButton = true;
-        }
-        if (Input.GetButtonUp("Fire"))
-        {
-            fireButton = false;
-        }
-        if (!fire)
-        {
-            if (ammo > 0 && (fireButton || _ctrl.firebtn))
+            if (Input.GetButtonDown("Fire"))
             {
-                --ammo;
-                fire = true;
-                fireTime = Time.timeSinceLevelLoad;
-                gunLight.enabled = true;
-                RaycastHit hit;
-                lineRenderer.SetVertexCount(2);
-                if (Physics.Raycast(transform.position + transform.forward * 0.4f, transform.right, out hit, 100f))
-                {
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, hit.collider.transform.position);
-                    if (hit.collider.tag == "mob")
-                    {
-                        hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length - 0.01f))]);
-                        if (Random.Range(0, 10) > 9)
-                        {
-                            audio.Play();
-                        }
-                        Destroy(hit.collider.gameObject);
-                        bloodScript.showNextBlood(hit.collider.transform.position);
-                    }
-                }
-                else
-                {
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, transform.position + (transform.right * 10));
-                }
-                lineRenderer.enabled = true;
+                fireButton = true;
             }
-        }
-        else if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
-        {
-            fire = false;
-        }
-        else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
-        {
-            gunLight.enabled = false;
-            lineRenderer.enabled = false;
+            if (Input.GetButtonUp("Fire"))
+            {
+                fireButton = false;
+            }
+            if (!fire)
+            {
+                if (ammo > 0 && (fireButton || _ctrl.firebtn))
+                {
+                    --ammo;
+                    fire = true;
+                    fireTime = Time.timeSinceLevelLoad;
+                    gunLight.enabled = true;
+                    RaycastHit hit;
+                    lineRenderer.SetVertexCount(2);
+                    if (Physics.Raycast(transform.position + transform.forward * 0.4f, transform.right, out hit, 100f))
+                    {
+                        lineRenderer.SetPosition(0, transform.position);
+                        lineRenderer.SetPosition(1, hit.collider.transform.position);
+                        if (hit.collider.tag == "mob")
+                        {
+                            hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length - 0.01f))]);
+                            if (Random.Range(0, 10) > 9)
+                            {
+                                audio.Play();
+                            }
+                            Destroy(hit.collider.gameObject);
+                            bloodScript.showNextBlood(hit.collider.transform.position);
+                        }
+                    }
+                    else
+                    {
+                        lineRenderer.SetPosition(0, transform.position);
+                        lineRenderer.SetPosition(1, transform.position + (transform.right * 10));
+                    }
+                    lineRenderer.enabled = true;
+                }
+            }
+            else if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
+            {
+                fire = false;
+            }
+            else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
+            {
+                gunLight.enabled = false;
+                lineRenderer.enabled = false;
+            }
         }
     }
     public override int getWeaponId()

@@ -26,10 +26,12 @@ public class ShotgunScript : WeaponScript{
 
     private LineRenderer lineRenderer;
 	ManetteController _ctrl;
-	
-	
-	void Start () 
-	{
+    public GameStopScript game;
+
+    // Use this for initialization
+    void Start()
+    {
+        game = Camera.main.GetComponent<GameStopScript>();
 		_ctrl = GetComponent<ManetteController>();
         bloodScript = Camera.main.GetComponent<CameraScirpt>().bloodScript;
         lineRenderer = this.GetComponent<LineRenderer>();
@@ -37,60 +39,63 @@ public class ShotgunScript : WeaponScript{
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire"))
+        if (!game.ended)
         {
-            fireButton = true;
-        }
-        if (Input.GetButtonUp("Fire"))
-        {
-            fireButton = false;
-        }
-        if (!fire)
-        {
-			if (ammo > 0 && (fireButton || _ctrl.firebtn ))
+            if (Input.GetButtonDown("Fire"))
             {
-                --ammo;
-                fire = true;
-                gunLight.enabled = true;
-				audio.PlayOneShot(_shotgunShot);
-                fireTime = Time.timeSinceLevelLoad;
-                RaycastHit hit;
-                Quaternion qt;
-                lineRenderer.SetVertexCount(20);
-                for (int i = 0; i < 10; ++i )
+                fireButton = true;
+            }
+            if (Input.GetButtonUp("Fire"))
+            {
+                fireButton = false;
+            }
+            if (!fire)
+            {
+                if (ammo > 0 && (fireButton || _ctrl.firebtn))
                 {
-                    qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
-                    if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
+                    --ammo;
+                    fire = true;
+                    gunLight.enabled = true;
+                    audio.PlayOneShot(_shotgunShot);
+                    fireTime = Time.timeSinceLevelLoad;
+                    RaycastHit hit;
+                    Quaternion qt;
+                    lineRenderer.SetVertexCount(20);
+                    for (int i = 0; i < 10; ++i)
                     {
-                        lineRenderer.SetPosition((i * 2) + 0, transform.position);
-                        lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
-                        if (hit.collider.tag == "mob")
+                        qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
+                        if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
                         {
-							hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Mathf.FloorToInt(Random.Range(0f, _bigGoreSounds.Length-0.01f))]);
-                            bloodScript.showNextBlood(hit.collider.transform.position);
-                            Destroy(hit.collider.gameObject);
+                            lineRenderer.SetPosition((i * 2) + 0, transform.position);
+                            lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
+                            if (hit.collider.tag == "mob")
+                            {
+                                hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Mathf.FloorToInt(Random.Range(0f, _bigGoreSounds.Length - 0.01f))]);
+                                bloodScript.showNextBlood(hit.collider.transform.position);
+                                Destroy(hit.collider.gameObject);
+                            }
+                        }
+                        else
+                        {
+                            lineRenderer.SetPosition((i * 2) + 0, transform.position);
+                            lineRenderer.SetPosition((i * 2) + 1, transform.position + (qt * transform.right * 10));
                         }
                     }
-                    else
-                    {
-                        lineRenderer.SetPosition((i * 2) + 0, transform.position);
-                        lineRenderer.SetPosition((i * 2) + 1, transform.position + (qt * transform.right * 10));
-                    }
+                    lineRenderer.enabled = true;
                 }
-                lineRenderer.enabled = true;
             }
-        }
-        else
-        {
-            if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
+            else
             {
-                fire = false;
-            }
-            else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
-            {
-                gunLight.enabled = false;
-                lineRenderer.enabled = false;
-                lineRenderer.SetVertexCount(0);
+                if (Time.timeSinceLevelLoad - fireTime > fireMinTime)
+                {
+                    fire = false;
+                }
+                else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
+                {
+                    gunLight.enabled = false;
+                    lineRenderer.enabled = false;
+                    lineRenderer.SetVertexCount(0);
+                }
             }
         }
 	}

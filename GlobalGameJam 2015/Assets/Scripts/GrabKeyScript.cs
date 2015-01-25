@@ -12,6 +12,7 @@ public class GrabKeyScript : MonoBehaviour {
     [SerializeField]
     private KeyScript playerTwoKeyScript;
 
+    // Use this for initialization
     void Start()
     {
         playerOne = Camera.main.GetComponent<CameraScirpt>().playerOne.collider;
@@ -23,15 +24,15 @@ public class GrabKeyScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col == playerOne)
-        {
-            playerOneKeyScript.grabKey();
-            Destroy(this.gameObject);
-        }
-        if (col == playerTwo)
-        {
-            playerTwoKeyScript.grabKey();
-            Destroy(this.gameObject);
-        }
+            if (col == playerOne)
+            {
+                playerOneKeyScript.grabKey();
+                Destroy(this.gameObject);
+            }
+            if (col == playerTwo)
+            {
+                playerTwoKeyScript.grabKey();
+                Destroy(this.gameObject);
+            }
     }
 }
