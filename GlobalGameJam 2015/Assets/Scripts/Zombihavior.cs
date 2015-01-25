@@ -41,7 +41,7 @@ public class Zombihavior : MonoBehaviour {
             {
                 _target = Vector3.zero;
             }
-		    if(Vector3.Distance(transform.position, _Joueurs[0].transform.position) < 20f || Vector3.Distance(transform.position, _Joueurs[1].transform.position) < 20f)
+		    if((_Joueurs[0]!= null && Vector3.Distance(transform.position, _Joueurs[0].transform.position) < 20f) || (_Joueurs[1] != null && Vector3.Distance(transform.position, _Joueurs[1].transform.position) < 20f))
 		    {
 			    if(Random.Range(0, 1000)<3)
 			    {
