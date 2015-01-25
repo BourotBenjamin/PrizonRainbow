@@ -10,7 +10,8 @@ public class CameraScirpt : MonoBehaviour {
 
     private Transform cameraTransform;
     public GameStopScript game;
-
+	[SerializeField]
+	private AudioClip _doorSound;
     // Use this for initialization
     void Start()
     {
@@ -39,6 +40,11 @@ public class CameraScirpt : MonoBehaviour {
                 cameraTransform.camera.orthographicSize = 6;
             }
         }
+	}
+
+	public void PlayDoor()
+	{
+		audio.PlayOneShot(_doorSound);
 	}
 
 }
