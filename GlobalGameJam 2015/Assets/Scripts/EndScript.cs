@@ -4,10 +4,23 @@ using System.Collections;
 public class EndScript : MonoBehaviour {
 
     public GameStopScript game;
+    [SerializeField]
+    private GameObject zombieEmpty;
+    [SerializeField]
+    private float x;
+    [SerializeField]
+    private float y;
 
 	// Use this for initialization
 	void Start () {
         game = Camera.main.GetComponent<GameStopScript>();
+        for(int i = 0; i< 30; i++)
+        {
+            for (int j = 0; j < 30; j++)
+            {
+                GameObject.Instantiate(zombieEmpty, new Vector3(i, j, 0), Quaternion.identity);
+            }
+        }
 	}
 
     void OnTriggerEnter(Collider col)

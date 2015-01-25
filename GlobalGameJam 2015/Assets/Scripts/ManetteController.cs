@@ -88,6 +88,10 @@ public class ManetteController : MonoBehaviour {
             Move();
             Watch();
         }
+        else
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
 
 	}
 		

@@ -46,6 +46,10 @@ public class Controller : MonoBehaviour {
                 lightIsOn = false;
             }
         }
+        else
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
 	}
 	void Move()
 	{

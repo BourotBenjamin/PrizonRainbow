@@ -49,6 +49,10 @@ public class Zombihavior : MonoBehaviour {
 			    }
 		    }
         }
+        else
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
 	}
 
 	Vector3 SearchPlayer()
