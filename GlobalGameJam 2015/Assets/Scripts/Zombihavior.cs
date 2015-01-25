@@ -41,10 +41,13 @@ public class Zombihavior : MonoBehaviour {
             {
                 _target = Vector3.zero;
             }
-            if (Random.Range(0, 100) > 95)
-            {
-                audio.PlayOneShot(_ZSounds[Mathf.FloorToInt(Random.Range(0f, 4.99f))]);
-            }
+		    if(Vector3.Distance(transform.position, _Joueurs[0].transform.position) < 20f || Vector3.Distance(transform.position, _Joueurs[1].transform.position) < 20f)
+		    {
+			    if(Random.Range(0, 1000)<3)
+			    {
+				    audio.PlayOneShot(_ZSounds[Random.Range(0, _ZSounds.Length)]);
+			    }
+		    }
         }
 	}
 

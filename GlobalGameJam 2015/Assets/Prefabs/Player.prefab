@@ -37,6 +37,7 @@ GameObject:
   - 114: {fileID: 11458956}
   - 114: {fileID: 11400018}
   - 120: {fileID: 12000000}
+  - 82: {fileID: 8247836}
   m_Layer: 9
   m_Name: Player
   m_TagString: player
@@ -182,8 +183,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: -.477944314, w: .878390193}
-  m_LocalPosition: {x: 97.8000031, y: -108.120003, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: .813529015, w: -.581524432}
+  m_LocalPosition: {x: 99.5500031, y: -108.540001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402520}
@@ -251,7 +252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: -0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -470,6 +471,64 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 8073d0a257e993e489c12388beb4e18b, type: 3}
+--- !u!82 &8247836
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: a9b47f2ba63b73f45a6462c9e27d6b17, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 255
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!108 &10800000
 Light:
   m_ObjectHideFlags: 1
@@ -556,6 +615,15 @@ MonoBehaviour:
   gunLight: {fileID: 10800002}
   playerTexture: {fileID: 2800000, guid: 0eb6371746a5cdb4bb7cecd1125eb7ab, type: 3}
   playerQuad: {fileID: 156724}
+  _gunShot: {fileID: 8300000, guid: e0d5360c775541b4ead6508a4d9940bd, type: 3}
+  _goreSounds:
+  - {fileID: 8300000, guid: 635fec926e1304d43a0b0a1da106ce87, type: 3}
+  - {fileID: 8300000, guid: 1f0666c2734d0684fa590299c3eb32ec, type: 3}
+  - {fileID: 8300000, guid: 5e62e8e3d9765a2498c780e1065c3bc8, type: 3}
+  - {fileID: 8300000, guid: f07d330616a5f13429074f27a014a015, type: 3}
+  - {fileID: 8300000, guid: 3a7b7d2a471c1fb4bad44a57c0095ce7, type: 3}
+  - {fileID: 8300000, guid: ef7dc53cd21f0c347b69a9131b2ff5c3, type: 3}
+  - {fileID: 8300000, guid: d3ad020d36e6ffb4eb662f6c0d487582, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -683,6 +751,12 @@ MonoBehaviour:
   fireMinTime: 1
   fireLightTime: .0299999993
   gunLight: {fileID: 10800002}
+  _shotgunShot: {fileID: 8300000, guid: 291a0548c48cda6498cabeb1b4e618df, type: 3}
+  _bigGoreSounds:
+  - {fileID: 8300000, guid: b56a44b25636b294f8c4804f830c67af, type: 3}
+  - {fileID: 8300000, guid: f3e50435729b513428727e90fc9659e7, type: 3}
+  - {fileID: 8300000, guid: 980cc72c45d1ae344a26dd58e6a6160a, type: 3}
+  - {fileID: 8300000, guid: 95d787acc733e404dba3161e938c2f7d, type: 3}
   playerTexture: {fileID: 2800000, guid: 281298baf6fd987468ba51ef95f1c873, type: 3}
   playerQuad: {fileID: 156724}
 --- !u!114 &11400014
@@ -708,6 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b54aac3ec4de34c9df6b844e271fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _getKey: {fileID: 8300000, guid: e6f507b9cb69d864584ce836da484836, type: 3}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,6 +799,15 @@ MonoBehaviour:
   gunLight: {fileID: 10800002}
   playerTexture: {fileID: 2800000, guid: bf1d8199299c74844bc32c48138e5a5f, type: 3}
   playerQuad: {fileID: 156724}
+  _uziShot: {fileID: 8300000, guid: 62dcf845f57bd56409f48a1b3c57116b, type: 3}
+  _goreSounds:
+  - {fileID: 8300000, guid: 635fec926e1304d43a0b0a1da106ce87, type: 3}
+  - {fileID: 8300000, guid: 1f0666c2734d0684fa590299c3eb32ec, type: 3}
+  - {fileID: 8300000, guid: 5e62e8e3d9765a2498c780e1065c3bc8, type: 3}
+  - {fileID: 8300000, guid: f07d330616a5f13429074f27a014a015, type: 3}
+  - {fileID: 8300000, guid: 3a7b7d2a471c1fb4bad44a57c0095ce7, type: 3}
+  - {fileID: 8300000, guid: ef7dc53cd21f0c347b69a9131b2ff5c3, type: 3}
+  - {fileID: 8300000, guid: d3ad020d36e6ffb4eb662f6c0d487582, type: 3}
 --- !u!114 &11402520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,11 +822,11 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 4.80000019
+  lightRadius: 5.5
   coneStart: 0
   coneAngle: 360
   lightColor: {r: .274509817, g: .274509817, b: .274509817, a: 0}
-  lightDetail: 1008
+  lightDetail: 96
   lightMaterial: {fileID: 2100000, guid: e59eef300ef3e7d49b4def05ab2750f2, type: 2}
   shadowLayer:
     serializedVersion: 2
@@ -819,7 +903,7 @@ CapsuleCollider:
   m_Radius: .319999993
   m_Height: 2.50999999
   m_Direction: 2
-  m_Center: {x: .0399999991, y: -0, z: 0}
+  m_Center: {x: 0, y: -0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

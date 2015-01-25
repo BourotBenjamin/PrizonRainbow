@@ -13,7 +13,7 @@ public class GunScript : WeaponScript
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light gunLight;
+    private GameObject gunLight;
     ManetteController _ctrl;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
@@ -56,22 +56,28 @@ public class GunScript : WeaponScript
                     --ammo;
                     fire = true;
                     fireTime = Time.timeSinceLevelLoad;
-                    gunLight.enabled = true;
+				    audio.PlayOneShot(_gunShot);
+				    gunLight.SetActive(true);
                     RaycastHit hit;
                     lineRenderer.SetVertexCount(2);
                     if (Physics.Raycast(transform.position + transform.forward * 0.4f, transform.right, out hit, 100f))
-                    {
+                    { 
                         lineRenderer.SetPosition(0, transform.position);
                         lineRenderer.SetPosition(1, hit.collider.transform.position);
                         if (hit.collider.tag == "mob")
                         {
-                            hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length - 0.01f))]);
+                            hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Random.Range(0, _goreSounds.Length)]);
                             if (Random.Range(0, 10) > 9)
                             {
                                 audio.Play();
                             }
                             Destroy(hit.collider.gameObject);
                             bloodScript.showNextBlood(hit.collider.transform.position);
+                            Camera.main.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0, 3))]);
+                            if (Random.Range(0, 10) > 9)
+                            {
+                                audio.Play();
+                            }
                         }
                     }
                     else
@@ -88,7 +94,7 @@ public class GunScript : WeaponScript
             }
             else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
             {
-                gunLight.enabled = false;
+                gunLight.SetActive(false);
                 lineRenderer.enabled = false;
             }
         }

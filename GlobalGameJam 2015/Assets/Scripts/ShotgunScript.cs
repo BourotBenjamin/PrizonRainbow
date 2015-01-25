@@ -12,7 +12,7 @@ public class ShotgunScript : WeaponScript{
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light gunLight;
+    private GameObject gunLight;
     private BloodScript bloodScript;
 	[SerializeField]
 	private AudioClip _shotgunShot;
@@ -55,22 +55,28 @@ public class ShotgunScript : WeaponScript{
                 {
                     --ammo;
                     fire = true;
-                    gunLight.enabled = true;
-                    audio.PlayOneShot(_shotgunShot);
+				    gunLight.SetActive(true);
+				    audio.PlayOneShot(_shotgunShot);
                     fireTime = Time.timeSinceLevelLoad;
                     RaycastHit hit;
                     Quaternion qt;
                     lineRenderer.SetVertexCount(20);
-                    for (int i = 0; i < 10; ++i)
+                    for (int i = 0; i < 10; ++i )
                     {
                         qt = Quaternion.AngleAxis(Random.Range(-15, 15), Vector3.forward);
-                        if (Physics.Raycast(transform.position, qt * transform.right, out hit, 100f))
+					    if (Physics.Raycast(transform.position+ transform.forward * 0.4f, qt * transform.right, out hit, 100f))
                         {
                             lineRenderer.SetPosition((i * 2) + 0, transform.position);
                             lineRenderer.SetPosition((i * 2) + 1, hit.collider.transform.position);
                             if (hit.collider.tag == "mob")
                             {
-                                hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Mathf.FloorToInt(Random.Range(0f, _bigGoreSounds.Length - 0.01f))]);
+                                hit.collider.gameObject.audio.PlayOneShot(_bigGoreSounds[Random.Range(0, _bigGoreSounds.Length - 1)]);
+                                bloodScript.showNextBlood(hit.collider.transform.position);
+                                Camera.main.audio.PlayOneShot(_bigGoreSounds[Random.Range(0, _bigGoreSounds.Length)]);
+                                if (Random.Range(0, 10) > 9)
+                                {
+                                    audio.Play();
+                                }
                                 bloodScript.showNextBlood(hit.collider.transform.position);
                                 Destroy(hit.collider.gameObject);
                             }
@@ -92,7 +98,7 @@ public class ShotgunScript : WeaponScript{
                 }
                 else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
                 {
-                    gunLight.enabled = false;
+				gunLight.SetActive(false);
                     lineRenderer.enabled = false;
                     lineRenderer.SetVertexCount(0);
                 }

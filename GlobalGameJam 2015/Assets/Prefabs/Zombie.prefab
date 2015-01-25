@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11473642}
   - 54: {fileID: 5473642}
   - 136: {fileID: 13601452}
+  - 82: {fileID: 8239884}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: mob
@@ -71,8 +72,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173640}
-  m_LocalRotation: {x: 0, y: 0, z: -.999794602, w: .0202665646}
-  m_LocalPosition: {x: 2.50999999, y: -1.25, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: .108152106, w: .994134426}
+  m_LocalPosition: {x: 11.5349998, y: -42.7439995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473642}
@@ -160,6 +161,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!82 &8239884
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173640}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11473642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +234,14 @@ MonoBehaviour:
   _viewRange: 6
   _viewAngle: 35
   _speed: 3
-  _ZSounds: []
+  _ZSounds:
+  - {fileID: 8300000, guid: 0ccd111130c820b4eaaec66f51a85746, type: 3}
+  - {fileID: 8300000, guid: d1247f026cf50974ea77e394d0ab8fc0, type: 3}
+  - {fileID: 8300000, guid: bf1b55d32085c534da28e76f58477a3a, type: 3}
+  - {fileID: 8300000, guid: 228e028904333b5408477fd67c6874ee, type: 3}
+  - {fileID: 8300000, guid: 5700110da2480764086542bb620d021c, type: 3}
+  - {fileID: 8300000, guid: c91c08dd975eb934c809493d29e98183, type: 3}
+  _playerDeath: {fileID: 8300000, guid: 18cf1f87c636275448199b219fbd63b7, type: 3}
 --- !u!136 &13601452
 CapsuleCollider:
   m_ObjectHideFlags: 1

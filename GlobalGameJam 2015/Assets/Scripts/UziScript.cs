@@ -11,7 +11,7 @@ public class UziScript : WeaponScript {
     [SerializeField]
     private float fireLightTime = 0.03f;
     [SerializeField]
-    private Light gunLight;
+    private GameObject gunLight;
     private BloodScript bloodScript;
     private LineRenderer lineRenderer;
     ManetteController _ctrl;
@@ -20,8 +20,11 @@ public class UziScript : WeaponScript {
     [SerializeField]
     private GameObject playerQuad;
     public GameStopScript game;
-
-    // Use this for initialization
+	[SerializeField]
+	private AudioClip _uziShot;
+	[SerializeField]
+	private AudioClip[] _goreSounds;
+	
     void Start()
     {
         game = Camera.main.GetComponent<GameStopScript>();
@@ -49,8 +52,9 @@ public class UziScript : WeaponScript {
                 {
                     --ammo;
                     fire = true;
-                    gunLight.enabled = true;
+                    gunLight.SetActive(true);
                     fireTime = Time.timeSinceLevelLoad;
+				    audio.PlayOneShot(_uziShot);
                     RaycastHit hit;
                     Quaternion qt;
                     lineRenderer.SetVertexCount(2);
@@ -64,6 +68,13 @@ public class UziScript : WeaponScript {
                             bloodScript.showNextBlood(hit.collider.transform.position);
                             Destroy(hit.collider.gameObject);
                         }
+						Camera.main.audio.PlayOneShot(_goreSounds[Random.Range(0, _goreSounds.Length)]);
+						if (Random.Range(0, 10) > 9)
+						{
+							audio.Play();
+						}
+						bloodScript.showNextBlood(hit.collider.transform.position);
+						Destroy(hit.collider.gameObject);
                     }
                     else
                     {
@@ -81,8 +92,8 @@ public class UziScript : WeaponScript {
                 }
                 else if (Time.timeSinceLevelLoad - fireTime > fireLightTime)
                 {
-                    gunLight.enabled = false;
-                    lineRenderer.enabled = false;
+				    gunLight.SetActive(false);
+				    lineRenderer.enabled = false;
                     lineRenderer.SetVertexCount(0);
                 }
             }
