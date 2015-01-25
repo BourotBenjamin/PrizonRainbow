@@ -53,6 +53,7 @@ public class GunScript : WeaponScript
                 --ammo;
                 fire = true;
                 fireTime = Time.timeSinceLevelLoad;
+				audio.PlayOneShot(_gunShot);
                 gunLight.enabled = true;
                 RaycastHit hit;
                 lineRenderer.SetVertexCount(2);
@@ -62,10 +63,10 @@ public class GunScript : WeaponScript
                     lineRenderer.SetPosition(1, hit.collider.transform.position);
                     if (hit.collider.tag == "mob")
                     {
-                        hit.collider.gameObject.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length - 0.01f))]);
+						Camera.main.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0, 3))]);
                         if (Random.Range(0, 10) > 9)
                         {
-                            audio.Play();
+							audio.Play();
                         }
                         Destroy(hit.collider.gameObject);
                         bloodScript.showNextBlood(hit.collider.transform.position);

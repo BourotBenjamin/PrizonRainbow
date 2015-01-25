@@ -19,7 +19,11 @@ public class UziScript : WeaponScript {
     private Texture playerTexture;
     [SerializeField]
     private GameObject playerQuad;
-
+	[SerializeField]
+	private AudioClip _uziShot;
+	[SerializeField]
+	private AudioClip[] _goreSounds;
+	
 
     void Start()
     {
@@ -47,6 +51,7 @@ public class UziScript : WeaponScript {
                 fire = true;
                 gunLight.enabled = true;
                 fireTime = Time.timeSinceLevelLoad;
+				audio.PlayOneShot(_uziShot);
                 RaycastHit hit;
                 Quaternion qt;
                 lineRenderer.SetVertexCount(2);
@@ -57,8 +62,13 @@ public class UziScript : WeaponScript {
                     lineRenderer.SetPosition(1, hit.collider.transform.position);
                     if (hit.collider.tag == "mob")
                     {
-                        bloodScript.showNextBlood(hit.collider.transform.position);
-                        Destroy(hit.collider.gameObject);
+						Camera.main.audio.PlayOneShot(_goreSounds[Mathf.FloorToInt(Random.Range(0f, _goreSounds.Length - 0.01f))]);
+						if (Random.Range(0, 10) > 9)
+						{
+							audio.Play();
+						}
+						bloodScript.showNextBlood(hit.collider.transform.position);
+						Destroy(hit.collider.gameObject);
                     }
                 }
                 else
